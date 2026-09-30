@@ -1,0 +1,11 @@
+{
+  "protocolVersion": "1.0.0",
+  "id": "00000000-0000-4000-8000-000000000013",
+  "type": "interactive-project/quiz",
+  "activitySchemaVersion": "1.0.0",
+  "metadata": {
+    "title": "Quiz with relative concept identifier",
+    "concepts": ["concepts/measurement"]
+  },
+  "config": {}
+}

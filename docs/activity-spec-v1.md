@@ -48,7 +48,7 @@ The `metadata` object has one required field, `title`. All other fields are opti
 | `difficulty` | One of `introductory`, `beginner`, `intermediate`, `advanced`, `expert` | Intended difficulty band; the labels have this ordinal order |
 | `estimatedDuration` | Object with `value` integer 1–604,800 and `unit` exactly `seconds` | Estimated learner time, from one second through one week |
 
-URI identifiers are opaque references, not labels; display names belong in a vocabulary or localization layer. Metadata limits count Unicode code points, not UTF-8 bytes. Unknown metadata fields are invalid in v1.
+URI identifiers are opaque references, not labels; display names belong in a vocabulary or localization layer. The schema requires an absolute URI scheme and declares the `uri` format; implementations MUST validate that format as an assertion because JSON Schema 2020-12 validators may treat formats as annotations only. Metadata limits count Unicode code points, not UTF-8 bytes. Unknown metadata fields are invalid in v1.
 
 ## Config ownership and dependency direction
 

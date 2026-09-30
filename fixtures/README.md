@@ -17,6 +17,8 @@ For each of the six v1 activity types:
 | `interactive-project/diagram` | Extension key has no reverse-DNS namespace |
 | `interactive-project/whiteboard` | Unknown top-level property |
 
+`quiz/invalid-uri.json` is an additional invalid envelope demonstrating that concept identifiers cannot be relative references.
+
 Boundary review evidence:
 
 | Boundary | Accepted | Rejected |
