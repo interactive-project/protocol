@@ -1,0 +1,35 @@
+{
+  "protocolVersion": "1.0.0",
+  "id": "00000000-0000-4000-8000-000000000008",
+  "type": "interactive-project/simulation",
+  "activitySchemaVersion": "1.0.0",
+  "metadata": {
+    "title": "Simulation complete example",
+    "description": "Simulation complete example with all optional metadata fields populated.",
+    "concepts": [
+      "https://example.edu/concepts/measurement",
+      "https://example.edu/concepts/patterns"
+    ],
+    "competencies": [
+      "https://example.edu/competencies/reasoning",
+      "https://example.edu/competencies/communication"
+    ],
+    "difficulty": "intermediate",
+    "estimatedDuration": {
+      "value": 1800,
+      "unit": "seconds"
+    }
+  },
+  "config": {},
+  "extensions": {
+    "com.example/annotation": {
+      "audience": "review",
+      "flags": [
+        "portable",
+        true,
+        null
+      ],
+      "rank": 2
+    }
+  }
+}

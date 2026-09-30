@@ -1,0 +1,11 @@
+{
+  "protocolVersion": "1.0.0",
+  "id": "00000000-0000-4000-8000-000000000011",
+  "type": "interactive-project/whiteboard",
+  "activitySchemaVersion": "1.0.0",
+  "metadata": {
+    "title": "Whiteboard activity"
+  },
+  "config": {},
+  "unrecognized": true
+}

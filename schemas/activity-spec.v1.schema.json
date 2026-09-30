@@ -1,0 +1,150 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/interactive-project/protocol/blob/main/schemas/activity-spec.v1.schema.json",
+  "title": "Interactive Project ActivitySpec v1",
+  "description": "Framework-independent shared envelope. Per-type config fields are owned by activity domain libraries.",
+  "type": "object",
+  "required": [
+    "protocolVersion",
+    "id",
+    "type",
+    "activitySchemaVersion",
+    "metadata",
+    "config"
+  ],
+  "properties": {
+    "protocolVersion": {
+      "const": "1.0.0"
+    },
+    "id": {
+      "type": "string",
+      "description": "Stable lowercase UUIDv4 identifying the logical activity.",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "interactive-project/quiz",
+        "interactive-project/flashcards",
+        "interactive-project/code",
+        "interactive-project/simulation",
+        "interactive-project/diagram",
+        "interactive-project/whiteboard"
+      ]
+    },
+    "activitySchemaVersion": {
+      "type": "string",
+      "description": "Three-part non-negative version of this type's config schema.",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+    },
+    "metadata": {
+      "$ref": "#/$defs/metadata"
+    },
+    "config": {
+      "type": "object",
+      "description": "Opaque JSON object interpreted and validated by the domain library for type.",
+      "additionalProperties": {
+        "$ref": "#/$defs/jsonValue"
+      }
+    },
+    "extensions": {
+      "type": "object",
+      "description": "Optional namespaced extension values. Unknown extensions are ignored semantically and preserved.",
+      "propertyNames": {
+        "pattern": "^[a-z0-9][a-z0-9-]*(?:\\.[a-z0-9][a-z0-9-]*)+/[a-z0-9][a-z0-9._-]*$"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/jsonValue"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "metadata": {
+      "type": "object",
+      "required": [
+        "title"
+      ],
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160,
+          "pattern": "\\S"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4000,
+          "pattern": "\\S"
+        },
+        "concepts": {
+          "$ref": "#/$defs/metadataIdentifiers"
+        },
+        "competencies": {
+          "$ref": "#/$defs/metadataIdentifiers"
+        },
+        "difficulty": {
+          "type": "string",
+          "enum": [
+            "introductory",
+            "beginner",
+            "intermediate",
+            "advanced",
+            "expert"
+          ]
+        },
+        "estimatedDuration": {
+          "$ref": "#/$defs/estimatedDuration"
+        }
+      },
+      "additionalProperties": false
+    },
+    "metadataIdentifiers": {
+      "type": "array",
+      "maxItems": 64,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 512,
+        "format": "uri"
+      }
+    },
+    "estimatedDuration": {
+      "type": "object",
+      "required": [
+        "value",
+        "unit"
+      ],
+      "properties": {
+        "value": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 604800
+        },
+        "unit": {
+          "const": "seconds"
+        }
+      },
+      "additionalProperties": false
+    },
+    "jsonValue": {
+      "description": "A JSON value. Standard JSON parsers reject non-finite numbers and cannot represent cycles or executable values.",
+      "type": [
+        "null",
+        "boolean",
+        "number",
+        "string",
+        "array",
+        "object"
+      ],
+      "items": {
+        "$ref": "#/$defs/jsonValue"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/jsonValue"
+      }
+    }
+  }
+}

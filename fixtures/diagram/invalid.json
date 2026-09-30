@@ -1,0 +1,15 @@
+{
+  "protocolVersion": "1.0.0",
+  "id": "00000000-0000-4000-8000-000000000009",
+  "type": "interactive-project/diagram",
+  "activitySchemaVersion": "1.0.0",
+  "metadata": {
+    "title": "Diagram activity"
+  },
+  "config": {},
+  "extensions": {
+    "render/annotation": {
+      "theme": "blue"
+    }
+  }
+}

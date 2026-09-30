@@ -1,0 +1,10 @@
+{
+  "protocolVersion": "1.0.0",
+  "id": "00000000-0000-4000-8000-000000000001",
+  "type": "interactive-project/quiz",
+  "activitySchemaVersion": "latest",
+  "metadata": {
+    "title": "Quiz activity"
+  },
+  "config": {}
+}

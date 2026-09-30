@@ -1,0 +1,14 @@
+{
+  "protocolVersion": "1.0.0",
+  "id": "00000000-0000-4000-8000-000000000007",
+  "type": "interactive-project/simulation",
+  "activitySchemaVersion": "1.0.0",
+  "metadata": {
+    "title": "Simulation activity",
+    "estimatedDuration": {
+      "value": 604801,
+      "unit": "seconds"
+    }
+  },
+  "config": {}
+}
