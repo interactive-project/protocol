@@ -87,3 +87,8 @@ Every value under `config` or `extensions` MUST be a JSON value: null, boolean, 
 - The v1 contract contains no localized metadata shape, asset embedding rules, event protocol, execution request, or host-specific rendering hints. Use a separately versioned extension or a future protocol decision for those capabilities.
 
 Before closing an implementation issue, reviewers should confirm the exact Core version range that consumes protocol v1, test one headless serializer and one host consumer, and document domain config support and snapshot migration behavior. Those runtime checks cannot be claimed from this schema-only repository state.
+
+## Validation publication
+
+See [portable validation v1](validation-v1.md) for offline schema identifiers,
+portable diagnostics, input budgets and optional TypeScript/Zod projections.

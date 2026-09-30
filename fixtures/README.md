@@ -32,3 +32,10 @@ Boundary review evidence:
 The ActivitySpec schema only defines the outer `config` object and JSON-value domain. Empty configs in these examples are valid protocol values, not declarations that an empty quiz, simulation, or other activity is valid under its domain schema.
 
 Runtime values such as cycles, NaN, Infinity, functions, and BigInts cannot be represented in JSON. Their rejection is documented in [the contract](../docs/activity-spec-v1.md#namespaces-unknown-fields-and-json-values); they must be checked before serialization.
+
+## Executable conformance manifest
+
+`conformance.json` records the expected outcome for each shared fixture, including
+additional boundary cases in `validation/`. Both JavaScript/Ajv and Python/jsonschema
+consume this same manifest via `npm test`. Runtime-only cases and portable diagnostic
+checks live in `scripts/check-conformance.mjs`; see [validation policy](../docs/validation-v1.md).

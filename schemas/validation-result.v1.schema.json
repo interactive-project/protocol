@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/interactive-project/protocol/blob/main/schemas/validation-result.v1.schema.json",
+  "title": "Portable validation result v1",
+  "type": "object",
+  "required": [
+    "valid",
+    "diagnostics"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "valid": {
+      "type": "boolean"
+    },
+    "diagnostics": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/diagnostic"
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "valid": {
+            "const": true
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "diagnostics": {
+            "maxItems": 0,
+            "type": "array"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "diagnostics": {
+            "minItems": 1,
+            "type": "array"
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "diagnostic": {
+      "type": "object",
+      "required": [
+        "code",
+        "path",
+        "severity",
+        "message"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "enum": [
+            "schema.required",
+            "schema.additionalProperties",
+            "schema.type",
+            "schema.const",
+            "schema.enum",
+            "schema.pattern",
+            "schema.format",
+            "schema.minLength",
+            "schema.maxLength",
+            "schema.maxItems",
+            "schema.uniqueItems",
+            "schema.minimum",
+            "schema.maximum",
+            "schema.propertyNames",
+            "input.maxNodes",
+            "input.maxDepth",
+            "input.maxStringLength",
+            "input.maxCollectionSize",
+            "input.nonJson",
+            "input.cycle"
+          ]
+        },
+        "path": {
+          "type": "string",
+          "pattern": "^(?:/(?:[^~/]|~[01])*)*$"
+        },
+        "severity": {
+          "const": "error"
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        }
+      }
+    }
+  }
+}

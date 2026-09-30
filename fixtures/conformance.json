@@ -1,0 +1,138 @@
+[
+  {
+    "file": "code/complete.json",
+    "valid": true
+  },
+  {
+    "file": "code/invalid.json",
+    "valid": false
+  },
+  {
+    "file": "code/minimal.json",
+    "valid": true
+  },
+  {
+    "file": "diagram/complete.json",
+    "valid": true
+  },
+  {
+    "file": "diagram/invalid.json",
+    "valid": false
+  },
+  {
+    "file": "diagram/minimal.json",
+    "valid": true
+  },
+  {
+    "file": "flashcards/complete.json",
+    "valid": true
+  },
+  {
+    "file": "flashcards/invalid.json",
+    "valid": false
+  },
+  {
+    "file": "flashcards/minimal.json",
+    "valid": true
+  },
+  {
+    "file": "quiz/complete.json",
+    "valid": true
+  },
+  {
+    "file": "quiz/invalid-uri.json",
+    "valid": false
+  },
+  {
+    "file": "quiz/invalid.json",
+    "valid": false
+  },
+  {
+    "file": "quiz/minimal.json",
+    "valid": true
+  },
+  {
+    "file": "simulation/complete.json",
+    "valid": true
+  },
+  {
+    "file": "simulation/invalid.json",
+    "valid": false
+  },
+  {
+    "file": "simulation/minimal.json",
+    "valid": true
+  },
+  {
+    "file": "whiteboard/complete.json",
+    "valid": true
+  },
+  {
+    "file": "whiteboard/invalid.json",
+    "valid": false
+  },
+  {
+    "file": "whiteboard/minimal.json",
+    "valid": true
+  },
+  {
+    "file": "validation/title-160.json",
+    "valid": true
+  },
+  {
+    "file": "validation/title-161.json",
+    "valid": false
+  },
+  {
+    "file": "validation/description-4000.json",
+    "valid": true
+  },
+  {
+    "file": "validation/description-4001.json",
+    "valid": false
+  },
+  {
+    "file": "validation/identifiers-64.json",
+    "valid": true
+  },
+  {
+    "file": "validation/identifiers-65.json",
+    "valid": false
+  },
+  {
+    "file": "validation/identifier-512.json",
+    "valid": true
+  },
+  {
+    "file": "validation/identifier-513.json",
+    "valid": false
+  },
+  {
+    "file": "validation/duplicate-identifiers.json",
+    "valid": false
+  },
+  {
+    "file": "validation/invalid-absolute-uri.json",
+    "valid": false
+  },
+  {
+    "file": "validation/escaped-property.json",
+    "valid": false
+  },
+  {
+    "file": "validation/unknown-metadata.json",
+    "valid": false
+  },
+  {
+    "file": "validation/unsupported-protocol.json",
+    "valid": false
+  },
+  {
+    "file": "validation/blank-title.json",
+    "valid": false
+  },
+  {
+    "file": "validation/unknown-type.json",
+    "valid": false
+  }
+]
