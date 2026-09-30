@@ -4,6 +4,8 @@ Portable, framework-neutral JSON contracts shared by Interactive Project activit
 
 - [ActivitySpec v1 contract](docs/activity-spec-v1.md)
 - [ActivitySpec v1 JSON Schema](schemas/activity-spec.v1.schema.json)
+- [Portable validation and offline resolution](docs/validation-v1.md)
+- [Validation result JSON Schema](schemas/validation-result.v1.schema.json)
 - [Fixtures and limits](fixtures/README.md)
 
-The protocol owns the common envelope and metadata. Each activity domain library owns its config schema and validation. This repository has no runtime dependencies and does not depend on Interactive Project Core, execution drivers, UI frameworks, styling systems, or validation libraries.
+The protocol owns the common envelope and metadata. Each activity domain library owns its config schema and validation. The schema assets have no runtime dependencies. The optional Node.js validation adapter uses Ajv and ajv-formats as optional peers. The protocol does not depend on Interactive Project Core, execution drivers, UI frameworks, styling systems, or validation libraries.
