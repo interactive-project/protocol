@@ -52,7 +52,7 @@ for (const item of validateActivitySpec(read('../fixtures/diagram/invalid.json')
 // Exact structural comparison keeps the optional TS projection aligned with the schema.
 const ts = await import('typescript');
 const program = ts.default.createProgram(
-  ['../types/activity-spec.d.ts', '../types/validation-result.d.ts', '../validation/index.d.ts', './type-consumer.mts', './shared-content-consumer.mts'].map(path => new URL(path, import.meta.url).pathname),
+  ['../types/activity-spec.d.ts', '../types/validation-result.d.ts', '../validation/index.d.ts', './type-consumer.mts', './shared-content-consumer.mts', './interoperability-consumer.mts'].map(path => new URL(path, import.meta.url).pathname),
   { strict: true, noEmit: true, module: ts.default.ModuleKind.NodeNext, moduleResolution: ts.default.ModuleResolutionKind.NodeNext }
 );
 assert.equal(ts.default.getPreEmitDiagnostics(program).length, 0);

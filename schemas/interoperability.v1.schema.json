@@ -1,0 +1,667 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/interactive-project/protocol/blob/main/schemas/interoperability.v1.schema.json",
+  "title": "Action, result, dispatch and snapshot interoperability v1",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/action"
+    },
+    {
+      "$ref": "#/$defs/dispatchResult"
+    },
+    {
+      "$ref": "#/$defs/result"
+    },
+    {
+      "$ref": "#/$defs/snapshot"
+    }
+  ],
+  "$defs": {
+    "action": {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": "1.0.0"
+        },
+        "activityId": {
+          "type": "string",
+          "description": "Stable lowercase UUIDv4 identifying the logical activity.",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "sessionId": {
+          "type": "string",
+          "description": "Stable lowercase UUIDv4 identifying the logical activity.",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "attemptId": {
+          "type": "string",
+          "description": "Stable lowercase UUIDv4 identifying the logical activity.",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "actionVersion": {
+          "const": "1.0.0"
+        },
+        "id": {
+          "type": "string",
+          "description": "Stable lowercase UUIDv4 identifying the logical activity.",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "type": {
+          "type": "string",
+          "maxLength": 128,
+          "pattern": "^[a-z0-9][a-z0-9.-]*/[a-z0-9][a-z0-9._-]*$"
+        },
+        "sequence": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "payload": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/jsonValue"
+          }
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "actionVersion",
+        "id",
+        "activityId",
+        "sessionId",
+        "type",
+        "sequence",
+        "payload"
+      ],
+      "additionalProperties": false
+    },
+    "accepted": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "const": "accepted"
+        },
+        "actionId": {
+          "type": "string",
+          "description": "Stable lowercase UUIDv4 identifying the logical activity.",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        }
+      },
+      "required": [
+        "status",
+        "actionId",
+        "revision"
+      ],
+      "additionalProperties": false
+    },
+    "rejected": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "const": "rejected"
+        },
+        "actionId": {
+          "type": "string",
+          "description": "Stable lowercase UUIDv4 identifying the logical activity.",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "code": {
+          "enum": [
+            "action.unknown",
+            "action.invalid",
+            "action.stale",
+            "action.identity",
+            "action.busy",
+            "action.disposed",
+            "action.permission",
+            "action.capability"
+          ]
+        },
+        "path": {
+          "type": "string",
+          "pattern": "^(?:/(?:[^~/]|~[01])*)*$"
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        }
+      },
+      "required": [
+        "status",
+        "actionId",
+        "code",
+        "path",
+        "message"
+      ],
+      "additionalProperties": false
+    },
+    "dispatchResult": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/accepted"
+        },
+        {
+          "$ref": "#/$defs/rejected"
+        }
+      ]
+    },
+    "completed": {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": "1.0.0"
+        },
+        "activityId": {
+          "type": "string",
+          "description": "Stable lowercase UUIDv4 identifying the logical activity.",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "sessionId": {
+          "type": "string",
+          "description": "Stable lowercase UUIDv4 identifying the logical activity.",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "attemptId": {
+          "type": "string",
+          "description": "Stable lowercase UUIDv4 identifying the logical activity.",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "resultVersion": {
+          "const": "1.0.0"
+        },
+        "evidence": {
+          "type": "array",
+          "maxItems": 1000,
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "uri",
+                "minLength": 1,
+                "maxLength": 2048
+              },
+              "type": {
+                "type": "string",
+                "format": "uri",
+                "minLength": 1,
+                "maxLength": 2048
+              }
+            },
+            "required": [
+              "id",
+              "type"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "status": {
+          "const": "completed"
+        },
+        "score": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "scale": {
+              "const": "normalized"
+            }
+          },
+          "required": [
+            "value",
+            "scale"
+          ],
+          "additionalProperties": false
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "resultVersion",
+        "activityId",
+        "sessionId",
+        "status",
+        "evidence",
+        "score",
+        "revision"
+      ],
+      "additionalProperties": false
+    },
+    "pending": {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": "1.0.0"
+        },
+        "activityId": {
+          "type": "string",
+          "description": "Stable lowercase UUIDv4 identifying the logical activity.",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "sessionId": {
+          "type": "string",
+          "description": "Stable lowercase UUIDv4 identifying the logical activity.",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "attemptId": {
+          "type": "string",
+          "description": "Stable lowercase UUIDv4 identifying the logical activity.",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "resultVersion": {
+          "const": "1.0.0"
+        },
+        "evidence": {
+          "type": "array",
+          "maxItems": 1000,
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "uri",
+                "minLength": 1,
+                "maxLength": 2048
+              },
+              "type": {
+                "type": "string",
+                "format": "uri",
+                "minLength": 1,
+                "maxLength": 2048
+              }
+            },
+            "required": [
+              "id",
+              "type"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "status": {
+          "const": "pending"
+        },
+        "pendingReason": {
+          "enum": [
+            "initialization",
+            "effects",
+            "evaluation",
+            "response"
+          ]
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "resultVersion",
+        "activityId",
+        "sessionId",
+        "status",
+        "evidence",
+        "pendingReason",
+        "revision"
+      ],
+      "additionalProperties": false
+    },
+    "failed": {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": "1.0.0"
+        },
+        "activityId": {
+          "type": "string",
+          "description": "Stable lowercase UUIDv4 identifying the logical activity.",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "sessionId": {
+          "type": "string",
+          "description": "Stable lowercase UUIDv4 identifying the logical activity.",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "attemptId": {
+          "type": "string",
+          "description": "Stable lowercase UUIDv4 identifying the logical activity.",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "resultVersion": {
+          "const": "1.0.0"
+        },
+        "evidence": {
+          "type": "array",
+          "maxItems": 1000,
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "uri",
+                "minLength": 1,
+                "maxLength": 2048
+              },
+              "type": {
+                "type": "string",
+                "format": "uri",
+                "minLength": 1,
+                "maxLength": 2048
+              }
+            },
+            "required": [
+              "id",
+              "type"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "status": {
+          "const": "failed"
+        },
+        "failure": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "enum": [
+                "evaluation.failure",
+                "evaluation.timeout",
+                "evaluation.cancelled"
+              ]
+            },
+            "message": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256
+            }
+          },
+          "required": [
+            "code",
+            "message"
+          ],
+          "additionalProperties": false
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "resultVersion",
+        "activityId",
+        "sessionId",
+        "status",
+        "evidence",
+        "failure",
+        "revision"
+      ],
+      "additionalProperties": false
+    },
+    "unevaluable": {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": "1.0.0"
+        },
+        "activityId": {
+          "type": "string",
+          "description": "Stable lowercase UUIDv4 identifying the logical activity.",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "sessionId": {
+          "type": "string",
+          "description": "Stable lowercase UUIDv4 identifying the logical activity.",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "attemptId": {
+          "type": "string",
+          "description": "Stable lowercase UUIDv4 identifying the logical activity.",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "resultVersion": {
+          "const": "1.0.0"
+        },
+        "evidence": {
+          "type": "array",
+          "maxItems": 1000,
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "uri",
+                "minLength": 1,
+                "maxLength": 2048
+              },
+              "type": {
+                "type": "string",
+                "format": "uri",
+                "minLength": 1,
+                "maxLength": 2048
+              }
+            },
+            "required": [
+              "id",
+              "type"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "status": {
+          "const": "unevaluable"
+        },
+        "reason": {
+          "enum": [
+            "unassessed",
+            "unsupported",
+            "not-ready",
+            "not-allowed"
+          ]
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "resultVersion",
+        "activityId",
+        "sessionId",
+        "status",
+        "evidence",
+        "reason",
+        "revision"
+      ],
+      "additionalProperties": false
+    },
+    "result": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/completed"
+        },
+        {
+          "$ref": "#/$defs/pending"
+        },
+        {
+          "$ref": "#/$defs/failed"
+        },
+        {
+          "$ref": "#/$defs/unevaluable"
+        }
+      ]
+    },
+    "snapshot": {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": "1.0.0"
+        },
+        "snapshotVersion": {
+          "const": "1.0.0"
+        },
+        "activity": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Stable lowercase UUIDv4 identifying the logical activity.",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "interactive-project/quiz",
+                "interactive-project/flashcards",
+                "interactive-project/code",
+                "interactive-project/simulation",
+                "interactive-project/diagram",
+                "interactive-project/whiteboard"
+              ]
+            },
+            "activitySchemaVersion": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+            },
+            "contentDigest": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "id",
+            "type",
+            "activitySchemaVersion",
+            "contentDigest"
+          ],
+          "additionalProperties": false
+        },
+        "engine": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "maxLength": 128,
+              "pattern": "^[a-z0-9][a-z0-9.-]*/[a-z0-9][a-z0-9._-]*$"
+            },
+            "stateVersion": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+            }
+          },
+          "required": [
+            "id",
+            "stateVersion"
+          ],
+          "additionalProperties": false
+        },
+        "session": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Stable lowercase UUIDv4 identifying the logical activity.",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            },
+            "attemptId": {
+              "type": "string",
+              "description": "Stable lowercase UUIDv4 identifying the logical activity.",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            },
+            "revision": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            }
+          },
+          "required": [
+            "id",
+            "revision"
+          ],
+          "additionalProperties": false
+        },
+        "state": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/jsonValue"
+          }
+        },
+        "drivers": {
+          "type": "object",
+          "maxProperties": 64,
+          "propertyNames": {
+            "pattern": "^[a-z0-9][a-z0-9-]*(?:\\.[a-z0-9][a-z0-9-]*)+/[a-z0-9][a-z0-9._-]*$"
+          },
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "driverVersion": {
+                "type": "string",
+                "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+              },
+              "stateVersion": {
+                "type": "string",
+                "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+              },
+              "encoding": {
+                "const": "json"
+              },
+              "data": {
+                "$ref": "#/$defs/jsonValue"
+              }
+            },
+            "required": [
+              "driverVersion",
+              "stateVersion",
+              "encoding",
+              "data"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "snapshotVersion",
+        "activity",
+        "engine",
+        "session",
+        "state"
+      ],
+      "additionalProperties": false
+    },
+    "jsonValue": {
+      "description": "A JSON value. Standard JSON parsers reject non-finite numbers and cannot represent cycles or executable values.",
+      "type": [
+        "null",
+        "boolean",
+        "number",
+        "string",
+        "array",
+        "object"
+      ],
+      "items": {
+        "$ref": "#/$defs/jsonValue"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/jsonValue"
+      }
+    }
+  }
+}

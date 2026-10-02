@@ -1,0 +1,14 @@
+{
+  "protocolVersion": "1.0.0",
+  "activityId": "00000000-0000-4000-8000-000000000041",
+  "sessionId": "00000000-0000-4000-8000-000000000401",
+  "attemptId": "00000000-0000-4000-8000-000000000402",
+  "resultVersion": "1.0.0",
+  "status": "failed",
+  "failure": {
+    "code": "evaluation.timeout",
+    "message": "Evaluation did not complete in time."
+  },
+  "evidence": [],
+  "revision": 1
+}
