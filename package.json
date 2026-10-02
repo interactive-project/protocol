@@ -3,15 +3,43 @@
   "version": "0.1.0",
   "type": "module",
   "description": "Portable ActivitySpec JSON Schema and validation diagnostics",
-  "files": ["schemas", "validation", "types", "docs", "fixtures", "README.md"],
+  "files": [
+    "schemas",
+    "validation",
+    "types",
+    "docs",
+    "fixtures",
+    "README.md"
+  ],
   "exports": {
     "./schemas/activity-spec.v1.schema.json": "./schemas/activity-spec.v1.schema.json",
     "./schemas/validation-result.v1.schema.json": "./schemas/validation-result.v1.schema.json",
-    "./validation": "./validation/index.js",
+    "./validation": {
+      "types": "./validation/index.d.ts",
+      "import": "./validation/index.js",
+      "default": "./validation/index.js"
+    },
     "./types": "./types/activity-spec.d.ts"
   },
-  "scripts": {"test": "node scripts/check-conformance.mjs && python3 scripts/check_conformance.py", "check:types": "tsc --noEmit --strict types/activity-spec.d.ts"},
-  "peerDependencies": {"ajv": "^8.17.1", "ajv-formats": "^3.0.1"},
-  "peerDependenciesMeta": {"ajv": {"optional": true}, "ajv-formats": {"optional": true}},
-  "devDependencies": {"ajv": "^8.17.1", "ajv-formats": "^3.0.1", "typescript": "^5.9.3"}
+  "scripts": {
+    "test": "node scripts/check-conformance.mjs && python3 scripts/check_conformance.py",
+    "check:types": "tsc --noEmit --strict --module NodeNext --moduleResolution NodeNext types/activity-spec.d.ts validation/index.d.ts scripts/type-consumer.mts"
+  },
+  "peerDependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1"
+  },
+  "peerDependenciesMeta": {
+    "ajv": {
+      "optional": true
+    },
+    "ajv-formats": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "typescript": "^5.9.3"
+  }
 }

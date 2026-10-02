@@ -24,3 +24,5 @@ export interface ActivitySpec {
   config: { [key: string]: JsonValue };
   extensions?: { [key: string]: JsonValue };
 }
+
+export type { ValidationCode, ValidationDiagnostic, ValidationResult } from './validation-result.js';
