@@ -52,7 +52,7 @@ for (const item of validateActivitySpec(read('../fixtures/diagram/invalid.json')
 // Exact structural comparison keeps the optional TS projection aligned with the schema.
 const ts = await import('typescript');
 const program = ts.default.createProgram(
-  ['../types/activity-spec.d.ts', '../types/validation-result.d.ts', '../validation/index.d.ts', './type-consumer.mts', './shared-content-consumer.mts', './interoperability-consumer.mts'].map(path => new URL(path, import.meta.url).pathname),
+  ['../types/activity-spec.d.ts', '../types/validation-result.d.ts', '../validation/index.d.ts', './type-consumer.mts', './shared-content-consumer.mts', './interoperability-consumer.mts', './generation-consumer.mts'].map(path => new URL(path, import.meta.url).pathname),
   { strict: true, noEmit: true, module: ts.default.ModuleKind.NodeNext, moduleResolution: ts.default.ModuleResolutionKind.NodeNext }
 );
 assert.equal(ts.default.getPreEmitDiagnostics(program).length, 0);
@@ -131,8 +131,30 @@ for (const [name, definition] of [['LocalizedText', 'localizedText'], ['Accessib
 console.log('Shared content schema/type consistency passed.');
 
 const headlessProgram = ts.default.createProgram(
-  ['../interoperability/index.d.ts', '../validation/interoperability.d.ts', '../content/index.d.ts'].map(path => new URL(path, import.meta.url).pathname),
+  ['../interoperability/index.d.ts', '../validation/interoperability.d.ts', '../content/index.d.ts', '../generation/index.d.ts'].map(path => new URL(path, import.meta.url).pathname),
   { strict: true, noEmit: true, module: ts.default.ModuleKind.NodeNext, moduleResolution: ts.default.ModuleResolutionKind.NodeNext, lib: ['lib.es2022.d.ts'] }
 );
 assert.equal(ts.default.getPreEmitDiagnostics(headlessProgram).length, 0, 'Public contracts must compile without DOM type libraries');
 console.log('Headless contract types compile with ES2022 libraries only.');
+
+const catalogSchema = read('../schemas/generation-catalog.v1.schema.json');
+const generationSource = program.getSourceFiles().find(file => file.fileName.endsWith('/types/generation.d.ts'));
+const generationDeclarations = new Map(generationSource.statements.filter(statement => statement.name).map(statement => [statement.name.text, statement]));
+function compareCatalog(type, shape) {
+  if (shape.$ref) shape = catalogSchema.$defs[shape.$ref.split('/').at(-1)];
+  if (shape.properties) {
+    const props = checker.getPropertiesOfType(type);
+    assert.deepEqual(props.map(prop => prop.name).sort(), Object.keys(shape.properties).sort());
+    for (const prop of props) {
+      assert.equal(!(prop.flags & ts.default.SymbolFlags.Optional), (shape.required ?? []).includes(prop.name));
+      compareCatalog(checker.getNonNullableType(checker.getTypeOfSymbolAtLocation(prop, generationSource)), shape.properties[prop.name]);
+    }
+  } else if (shape.enum || shape.const !== undefined) {
+    const values = type.isUnion() ? type.types.map(item => item.value) : [type.value];
+    assert.deepEqual(values.sort(), (shape.enum ?? [shape.const]).slice().sort());
+  } else if (shape.type === 'array') {
+    compareCatalog(checker.getIndexTypeOfType(type, ts.default.IndexKind.Number), shape.items);
+  } else { assert.equal(checker.typeToString(type), shape.type); }
+}
+compareCatalog(checker.getTypeAtLocation(generationDeclarations.get('GenerationCatalog')), catalogSchema);
+console.log('Generation catalog schema/type consistency passed.');

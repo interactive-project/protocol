@@ -1,0 +1,14 @@
+[
+  {
+    "file": "generation/catalog.json",
+    "valid": true
+  },
+  {
+    "file": "../catalogs/available-generation.v1.json",
+    "valid": true
+  },
+  {
+    "file": "generation/invalid-catalog.json",
+    "valid": false
+  }
+]

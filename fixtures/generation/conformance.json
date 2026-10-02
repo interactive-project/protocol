@@ -1,0 +1,108 @@
+[
+  {
+    "file": "generation/accepted-quiz.json",
+    "policy": {},
+    "drivers": [
+      "fixtures/quiz-engine"
+    ],
+    "valid": true,
+    "stage": "accepted"
+  },
+  {
+    "file": "generation/accepted-code.json",
+    "policy": {
+      "execution": true
+    },
+    "drivers": [
+      "fixtures/code-engine"
+    ],
+    "valid": true,
+    "stage": "accepted"
+  },
+  {
+    "file": "generation/unknown-type.json",
+    "policy": {},
+    "drivers": [],
+    "valid": false,
+    "stage": "structural",
+    "code": "generation.unknownType"
+  },
+  {
+    "file": "generation/unsupported-version.json",
+    "policy": {},
+    "drivers": [
+      "fixtures/quiz-engine"
+    ],
+    "valid": false,
+    "stage": "structural",
+    "code": "generation.unsupportedVersion"
+  },
+  {
+    "file": "generation/unsupported-protocol.json",
+    "policy": {},
+    "drivers": [],
+    "valid": false,
+    "stage": "structural",
+    "code": "generation.unsupportedVersion"
+  },
+  {
+    "file": "generation/missing-driver.json",
+    "policy": {},
+    "drivers": [],
+    "valid": false,
+    "stage": "capability",
+    "code": "generation.missingDriver"
+  },
+  {
+    "file": "generation/prohibited-execution.json",
+    "policy": {
+      "execution": false
+    },
+    "drivers": [
+      "fixtures/code-engine"
+    ],
+    "valid": false,
+    "stage": "permission",
+    "code": "generation.permissionDenied"
+  },
+  {
+    "file": "generation/permission-before-driver.json",
+    "policy": {},
+    "drivers": [],
+    "valid": false,
+    "stage": "permission",
+    "code": "generation.permissionDenied"
+  },
+  {
+    "file": "generation/domain-structure.json",
+    "policy": {},
+    "drivers": [
+      "fixtures/quiz-engine"
+    ],
+    "valid": false,
+    "stage": "structural",
+    "code": "generation.domainSchema"
+  },
+  {
+    "file": "generation/domain-semantics.json",
+    "policy": {},
+    "drivers": [
+      "fixtures/quiz-engine"
+    ],
+    "valid": false,
+    "stage": "semantic",
+    "code": "generation.semantic"
+  },
+  {
+    "file": "generation/content-cannot-grant.json",
+    "policy": {
+      "execution": false
+    },
+    "drivers": [
+      "fixtures/code-engine"
+    ],
+    "valid": false,
+    "stage": "permission",
+    "code": "generation.permissionDenied"
+  }
+]

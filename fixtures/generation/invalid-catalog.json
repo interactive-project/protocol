@@ -1,0 +1,86 @@
+{
+  "protocolVersion": "1.0.0",
+  "catalogVersion": "1.0.0",
+  "entries": [
+    {
+      "type": "interactive-project/quiz",
+      "activitySchemaVersion": "0.0.1",
+      "schemaId": "urn:fixtures:quiz-config:0.0.1",
+      "capabilities": {
+        "interactive": {
+          "supported": true,
+          "requiredDrivers": [
+            "fixtures/quiz-engine"
+          ]
+        },
+        "evaluable": {
+          "supported": true,
+          "requiredDrivers": [
+            "fixtures/quiz-engine"
+          ]
+        },
+        "collaborative": {
+          "supported": false
+        },
+        "offline": {
+          "supported": true
+        },
+        "deterministic": {
+          "supported": true
+        },
+        "resumable": {
+          "supported": true
+        },
+        "aiGeneratable": {
+          "supported": "yes"
+        }
+      },
+      "requiredCapabilities": [
+        "interactive",
+        "evaluable"
+      ],
+      "requiredPermissions": []
+    },
+    {
+      "type": "interactive-project/code",
+      "activitySchemaVersion": "0.0.1",
+      "schemaId": "urn:fixtures:code-config:0.0.1",
+      "capabilities": {
+        "interactive": {
+          "supported": true,
+          "requiredDrivers": [
+            "fixtures/code-engine"
+          ]
+        },
+        "evaluable": {
+          "supported": true,
+          "requiredDrivers": [
+            "fixtures/code-engine"
+          ]
+        },
+        "collaborative": {
+          "supported": false
+        },
+        "offline": {
+          "supported": true
+        },
+        "deterministic": {
+          "supported": true
+        },
+        "resumable": {
+          "supported": true
+        },
+        "aiGeneratable": {
+          "supported": true
+        }
+      },
+      "requiredCapabilities": [
+        "interactive",
+        "evaluable"
+      ],
+      "requiredPermissions": [
+        "execution"
+      ]
+    }
+  ]
+}

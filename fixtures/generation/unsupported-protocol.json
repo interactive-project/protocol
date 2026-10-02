@@ -1,0 +1,17 @@
+{
+  "protocolVersion": "2.0.0",
+  "id": "00000000-0000-4000-8000-000000000051",
+  "type": "interactive-project/quiz",
+  "activitySchemaVersion": "0.0.1",
+  "metadata": {
+    "title": "quiz generation fixture"
+  },
+  "config": {
+    "prompt": "Select A.",
+    "items": [
+      "A",
+      "B"
+    ],
+    "answer": "A"
+  }
+}
