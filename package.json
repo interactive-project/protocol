@@ -13,7 +13,8 @@
     "content",
     "interoperability",
     "generation",
-    "catalogs"
+    "catalogs",
+    "evolution"
   ],
   "exports": {
     "./schemas/activity-spec.v1.schema.json": "./schemas/activity-spec.v1.schema.json",
@@ -57,10 +58,17 @@
       "types": "./generation/json.d.ts",
       "import": "./generation/json.js",
       "default": "./generation/json.js"
-    }
+    },
+    "./evolution": {
+      "types": "./evolution/index.d.ts",
+      "import": "./evolution/index.js",
+      "default": "./evolution/index.js"
+    },
+    "./catalogs/compatibility.v1.json": "./catalogs/compatibility.v1.json",
+    "./catalogs/conformance-plan.v1.json": "./catalogs/conformance-plan.v1.json"
   },
   "scripts": {
-    "test": "node scripts/check-conformance.mjs && python3 scripts/check_conformance.py && node scripts/check-shared-content.mjs && python3 scripts/check_shared_content.py && node scripts/check-interoperability.mjs && python3 scripts/check_interoperability.py && node scripts/check-generation.mjs && python3 scripts/check_generation.py",
+    "test": "node scripts/check-conformance.mjs && python3 scripts/check_conformance.py && node scripts/check-shared-content.mjs && python3 scripts/check_shared_content.py && node scripts/check-interoperability.mjs && python3 scripts/check_interoperability.py && node scripts/check-generation.mjs && python3 scripts/check_generation.py && node scripts/check-evolution.mjs",
     "check:types": "tsc --noEmit --strict --module NodeNext --moduleResolution NodeNext types/activity-spec.d.ts validation/index.d.ts scripts/type-consumer.mts content/index.d.ts validation/shared-content.d.ts scripts/shared-content-consumer.mts interoperability/index.d.ts validation/interoperability.d.ts scripts/interoperability-consumer.mts generation/index.d.ts scripts/generation-consumer.mts"
   },
   "peerDependencies": {

@@ -1,0 +1,564 @@
+{
+  "catalogVersion": "1.0.0",
+  "description": "Planned domain/host behavioral suites; none are advertised as implemented by these planning entries.",
+  "suites": [
+    {
+      "id": "quiz/headless",
+      "domain": "interactive-project/quiz",
+      "host": "headless",
+      "status": "planned",
+      "requirements": [
+        "envelope-and-domain-validation",
+        "action-identity-and-rejection",
+        "result-status-and-score",
+        "snapshot-roundtrip-and-version-rejection",
+        "optional-extension-preservation",
+        "required-capability-rejection",
+        "oldest-newest-contracts",
+        "no-ui-imports"
+      ],
+      "implementationIssue": "https://github.com/interactive-project/quiz/issues/1"
+    },
+    {
+      "id": "quiz/dom",
+      "domain": "interactive-project/quiz",
+      "host": "dom",
+      "status": "planned",
+      "requirements": [
+        "envelope-and-domain-validation",
+        "action-identity-and-rejection",
+        "result-status-and-score",
+        "snapshot-roundtrip-and-version-rejection",
+        "optional-extension-preservation",
+        "required-capability-rejection",
+        "oldest-newest-contracts",
+        "mount-update-dispose",
+        "accessible-keyboard-interaction",
+        "no-serialized-native-objects"
+      ],
+      "implementationIssue": "https://github.com/interactive-project/renderer-dom/issues/1"
+    },
+    {
+      "id": "quiz/react",
+      "domain": "interactive-project/quiz",
+      "host": "react",
+      "status": "planned",
+      "requirements": [
+        "envelope-and-domain-validation",
+        "action-identity-and-rejection",
+        "result-status-and-score",
+        "snapshot-roundtrip-and-version-rejection",
+        "optional-extension-preservation",
+        "required-capability-rejection",
+        "oldest-newest-contracts",
+        "mount-update-dispose",
+        "accessible-keyboard-interaction",
+        "no-serialized-native-objects"
+      ],
+      "implementationIssue": "https://github.com/interactive-project/react/issues/1"
+    },
+    {
+      "id": "quiz/vue",
+      "domain": "interactive-project/quiz",
+      "host": "vue",
+      "status": "planned",
+      "requirements": [
+        "envelope-and-domain-validation",
+        "action-identity-and-rejection",
+        "result-status-and-score",
+        "snapshot-roundtrip-and-version-rejection",
+        "optional-extension-preservation",
+        "required-capability-rejection",
+        "oldest-newest-contracts",
+        "mount-update-dispose",
+        "accessible-keyboard-interaction",
+        "no-serialized-native-objects"
+      ],
+      "implementationIssue": "https://github.com/interactive-project/vue/issues/1"
+    },
+    {
+      "id": "quiz/svelte",
+      "domain": "interactive-project/quiz",
+      "host": "svelte",
+      "status": "planned",
+      "requirements": [
+        "envelope-and-domain-validation",
+        "action-identity-and-rejection",
+        "result-status-and-score",
+        "snapshot-roundtrip-and-version-rejection",
+        "optional-extension-preservation",
+        "required-capability-rejection",
+        "oldest-newest-contracts",
+        "mount-update-dispose",
+        "accessible-keyboard-interaction",
+        "no-serialized-native-objects"
+      ],
+      "implementationIssue": "https://github.com/interactive-project/svelte/issues/1"
+    },
+    {
+      "id": "flashcards/headless",
+      "domain": "interactive-project/flashcards",
+      "host": "headless",
+      "status": "planned",
+      "requirements": [
+        "envelope-and-domain-validation",
+        "action-identity-and-rejection",
+        "result-status-and-score",
+        "snapshot-roundtrip-and-version-rejection",
+        "optional-extension-preservation",
+        "required-capability-rejection",
+        "oldest-newest-contracts",
+        "no-ui-imports"
+      ],
+      "implementationIssue": "https://github.com/interactive-project/flashcards/issues/1"
+    },
+    {
+      "id": "flashcards/dom",
+      "domain": "interactive-project/flashcards",
+      "host": "dom",
+      "status": "planned",
+      "requirements": [
+        "envelope-and-domain-validation",
+        "action-identity-and-rejection",
+        "result-status-and-score",
+        "snapshot-roundtrip-and-version-rejection",
+        "optional-extension-preservation",
+        "required-capability-rejection",
+        "oldest-newest-contracts",
+        "mount-update-dispose",
+        "accessible-keyboard-interaction",
+        "no-serialized-native-objects"
+      ],
+      "implementationIssue": "https://github.com/interactive-project/renderer-dom/issues/1"
+    },
+    {
+      "id": "flashcards/react",
+      "domain": "interactive-project/flashcards",
+      "host": "react",
+      "status": "planned",
+      "requirements": [
+        "envelope-and-domain-validation",
+        "action-identity-and-rejection",
+        "result-status-and-score",
+        "snapshot-roundtrip-and-version-rejection",
+        "optional-extension-preservation",
+        "required-capability-rejection",
+        "oldest-newest-contracts",
+        "mount-update-dispose",
+        "accessible-keyboard-interaction",
+        "no-serialized-native-objects"
+      ],
+      "implementationIssue": "https://github.com/interactive-project/react/issues/1"
+    },
+    {
+      "id": "flashcards/vue",
+      "domain": "interactive-project/flashcards",
+      "host": "vue",
+      "status": "planned",
+      "requirements": [
+        "envelope-and-domain-validation",
+        "action-identity-and-rejection",
+        "result-status-and-score",
+        "snapshot-roundtrip-and-version-rejection",
+        "optional-extension-preservation",
+        "required-capability-rejection",
+        "oldest-newest-contracts",
+        "mount-update-dispose",
+        "accessible-keyboard-interaction",
+        "no-serialized-native-objects"
+      ],
+      "implementationIssue": "https://github.com/interactive-project/vue/issues/1"
+    },
+    {
+      "id": "flashcards/svelte",
+      "domain": "interactive-project/flashcards",
+      "host": "svelte",
+      "status": "planned",
+      "requirements": [
+        "envelope-and-domain-validation",
+        "action-identity-and-rejection",
+        "result-status-and-score",
+        "snapshot-roundtrip-and-version-rejection",
+        "optional-extension-preservation",
+        "required-capability-rejection",
+        "oldest-newest-contracts",
+        "mount-update-dispose",
+        "accessible-keyboard-interaction",
+        "no-serialized-native-objects"
+      ],
+      "implementationIssue": "https://github.com/interactive-project/svelte/issues/1"
+    },
+    {
+      "id": "code/headless",
+      "domain": "interactive-project/code",
+      "host": "headless",
+      "status": "planned",
+      "requirements": [
+        "envelope-and-domain-validation",
+        "action-identity-and-rejection",
+        "result-status-and-score",
+        "snapshot-roundtrip-and-version-rejection",
+        "optional-extension-preservation",
+        "required-capability-rejection",
+        "oldest-newest-contracts",
+        "no-ui-imports"
+      ],
+      "implementationIssue": "https://github.com/interactive-project/code/issues/1"
+    },
+    {
+      "id": "code/dom",
+      "domain": "interactive-project/code",
+      "host": "dom",
+      "status": "planned",
+      "requirements": [
+        "envelope-and-domain-validation",
+        "action-identity-and-rejection",
+        "result-status-and-score",
+        "snapshot-roundtrip-and-version-rejection",
+        "optional-extension-preservation",
+        "required-capability-rejection",
+        "oldest-newest-contracts",
+        "mount-update-dispose",
+        "accessible-keyboard-interaction",
+        "no-serialized-native-objects"
+      ],
+      "implementationIssue": "https://github.com/interactive-project/renderer-dom/issues/1"
+    },
+    {
+      "id": "code/react",
+      "domain": "interactive-project/code",
+      "host": "react",
+      "status": "planned",
+      "requirements": [
+        "envelope-and-domain-validation",
+        "action-identity-and-rejection",
+        "result-status-and-score",
+        "snapshot-roundtrip-and-version-rejection",
+        "optional-extension-preservation",
+        "required-capability-rejection",
+        "oldest-newest-contracts",
+        "mount-update-dispose",
+        "accessible-keyboard-interaction",
+        "no-serialized-native-objects"
+      ],
+      "implementationIssue": "https://github.com/interactive-project/react/issues/1"
+    },
+    {
+      "id": "code/vue",
+      "domain": "interactive-project/code",
+      "host": "vue",
+      "status": "planned",
+      "requirements": [
+        "envelope-and-domain-validation",
+        "action-identity-and-rejection",
+        "result-status-and-score",
+        "snapshot-roundtrip-and-version-rejection",
+        "optional-extension-preservation",
+        "required-capability-rejection",
+        "oldest-newest-contracts",
+        "mount-update-dispose",
+        "accessible-keyboard-interaction",
+        "no-serialized-native-objects"
+      ],
+      "implementationIssue": "https://github.com/interactive-project/vue/issues/1"
+    },
+    {
+      "id": "code/svelte",
+      "domain": "interactive-project/code",
+      "host": "svelte",
+      "status": "planned",
+      "requirements": [
+        "envelope-and-domain-validation",
+        "action-identity-and-rejection",
+        "result-status-and-score",
+        "snapshot-roundtrip-and-version-rejection",
+        "optional-extension-preservation",
+        "required-capability-rejection",
+        "oldest-newest-contracts",
+        "mount-update-dispose",
+        "accessible-keyboard-interaction",
+        "no-serialized-native-objects"
+      ],
+      "implementationIssue": "https://github.com/interactive-project/svelte/issues/1"
+    },
+    {
+      "id": "simulation/headless",
+      "domain": "interactive-project/simulation",
+      "host": "headless",
+      "status": "planned",
+      "requirements": [
+        "envelope-and-domain-validation",
+        "action-identity-and-rejection",
+        "result-status-and-score",
+        "snapshot-roundtrip-and-version-rejection",
+        "optional-extension-preservation",
+        "required-capability-rejection",
+        "oldest-newest-contracts",
+        "no-ui-imports"
+      ],
+      "implementationIssue": "https://github.com/interactive-project/simulation/issues/1"
+    },
+    {
+      "id": "simulation/dom",
+      "domain": "interactive-project/simulation",
+      "host": "dom",
+      "status": "planned",
+      "requirements": [
+        "envelope-and-domain-validation",
+        "action-identity-and-rejection",
+        "result-status-and-score",
+        "snapshot-roundtrip-and-version-rejection",
+        "optional-extension-preservation",
+        "required-capability-rejection",
+        "oldest-newest-contracts",
+        "mount-update-dispose",
+        "accessible-keyboard-interaction",
+        "no-serialized-native-objects"
+      ],
+      "implementationIssue": "https://github.com/interactive-project/renderer-dom/issues/1"
+    },
+    {
+      "id": "simulation/react",
+      "domain": "interactive-project/simulation",
+      "host": "react",
+      "status": "planned",
+      "requirements": [
+        "envelope-and-domain-validation",
+        "action-identity-and-rejection",
+        "result-status-and-score",
+        "snapshot-roundtrip-and-version-rejection",
+        "optional-extension-preservation",
+        "required-capability-rejection",
+        "oldest-newest-contracts",
+        "mount-update-dispose",
+        "accessible-keyboard-interaction",
+        "no-serialized-native-objects"
+      ],
+      "implementationIssue": "https://github.com/interactive-project/react/issues/1"
+    },
+    {
+      "id": "simulation/vue",
+      "domain": "interactive-project/simulation",
+      "host": "vue",
+      "status": "planned",
+      "requirements": [
+        "envelope-and-domain-validation",
+        "action-identity-and-rejection",
+        "result-status-and-score",
+        "snapshot-roundtrip-and-version-rejection",
+        "optional-extension-preservation",
+        "required-capability-rejection",
+        "oldest-newest-contracts",
+        "mount-update-dispose",
+        "accessible-keyboard-interaction",
+        "no-serialized-native-objects"
+      ],
+      "implementationIssue": "https://github.com/interactive-project/vue/issues/1"
+    },
+    {
+      "id": "simulation/svelte",
+      "domain": "interactive-project/simulation",
+      "host": "svelte",
+      "status": "planned",
+      "requirements": [
+        "envelope-and-domain-validation",
+        "action-identity-and-rejection",
+        "result-status-and-score",
+        "snapshot-roundtrip-and-version-rejection",
+        "optional-extension-preservation",
+        "required-capability-rejection",
+        "oldest-newest-contracts",
+        "mount-update-dispose",
+        "accessible-keyboard-interaction",
+        "no-serialized-native-objects"
+      ],
+      "implementationIssue": "https://github.com/interactive-project/svelte/issues/1"
+    },
+    {
+      "id": "diagram/headless",
+      "domain": "interactive-project/diagram",
+      "host": "headless",
+      "status": "planned",
+      "requirements": [
+        "envelope-and-domain-validation",
+        "action-identity-and-rejection",
+        "result-status-and-score",
+        "snapshot-roundtrip-and-version-rejection",
+        "optional-extension-preservation",
+        "required-capability-rejection",
+        "oldest-newest-contracts",
+        "no-ui-imports"
+      ],
+      "implementationIssue": "https://github.com/interactive-project/diagram/issues/1"
+    },
+    {
+      "id": "diagram/dom",
+      "domain": "interactive-project/diagram",
+      "host": "dom",
+      "status": "planned",
+      "requirements": [
+        "envelope-and-domain-validation",
+        "action-identity-and-rejection",
+        "result-status-and-score",
+        "snapshot-roundtrip-and-version-rejection",
+        "optional-extension-preservation",
+        "required-capability-rejection",
+        "oldest-newest-contracts",
+        "mount-update-dispose",
+        "accessible-keyboard-interaction",
+        "no-serialized-native-objects"
+      ],
+      "implementationIssue": "https://github.com/interactive-project/renderer-dom/issues/1"
+    },
+    {
+      "id": "diagram/react",
+      "domain": "interactive-project/diagram",
+      "host": "react",
+      "status": "planned",
+      "requirements": [
+        "envelope-and-domain-validation",
+        "action-identity-and-rejection",
+        "result-status-and-score",
+        "snapshot-roundtrip-and-version-rejection",
+        "optional-extension-preservation",
+        "required-capability-rejection",
+        "oldest-newest-contracts",
+        "mount-update-dispose",
+        "accessible-keyboard-interaction",
+        "no-serialized-native-objects"
+      ],
+      "implementationIssue": "https://github.com/interactive-project/react/issues/1"
+    },
+    {
+      "id": "diagram/vue",
+      "domain": "interactive-project/diagram",
+      "host": "vue",
+      "status": "planned",
+      "requirements": [
+        "envelope-and-domain-validation",
+        "action-identity-and-rejection",
+        "result-status-and-score",
+        "snapshot-roundtrip-and-version-rejection",
+        "optional-extension-preservation",
+        "required-capability-rejection",
+        "oldest-newest-contracts",
+        "mount-update-dispose",
+        "accessible-keyboard-interaction",
+        "no-serialized-native-objects"
+      ],
+      "implementationIssue": "https://github.com/interactive-project/vue/issues/1"
+    },
+    {
+      "id": "diagram/svelte",
+      "domain": "interactive-project/diagram",
+      "host": "svelte",
+      "status": "planned",
+      "requirements": [
+        "envelope-and-domain-validation",
+        "action-identity-and-rejection",
+        "result-status-and-score",
+        "snapshot-roundtrip-and-version-rejection",
+        "optional-extension-preservation",
+        "required-capability-rejection",
+        "oldest-newest-contracts",
+        "mount-update-dispose",
+        "accessible-keyboard-interaction",
+        "no-serialized-native-objects"
+      ],
+      "implementationIssue": "https://github.com/interactive-project/svelte/issues/1"
+    },
+    {
+      "id": "whiteboard/headless",
+      "domain": "interactive-project/whiteboard",
+      "host": "headless",
+      "status": "planned",
+      "requirements": [
+        "envelope-and-domain-validation",
+        "action-identity-and-rejection",
+        "result-status-and-score",
+        "snapshot-roundtrip-and-version-rejection",
+        "optional-extension-preservation",
+        "required-capability-rejection",
+        "oldest-newest-contracts",
+        "no-ui-imports"
+      ],
+      "implementationIssue": "https://github.com/interactive-project/whiteboard/issues/1"
+    },
+    {
+      "id": "whiteboard/dom",
+      "domain": "interactive-project/whiteboard",
+      "host": "dom",
+      "status": "planned",
+      "requirements": [
+        "envelope-and-domain-validation",
+        "action-identity-and-rejection",
+        "result-status-and-score",
+        "snapshot-roundtrip-and-version-rejection",
+        "optional-extension-preservation",
+        "required-capability-rejection",
+        "oldest-newest-contracts",
+        "mount-update-dispose",
+        "accessible-keyboard-interaction",
+        "no-serialized-native-objects"
+      ],
+      "implementationIssue": "https://github.com/interactive-project/renderer-dom/issues/1"
+    },
+    {
+      "id": "whiteboard/react",
+      "domain": "interactive-project/whiteboard",
+      "host": "react",
+      "status": "planned",
+      "requirements": [
+        "envelope-and-domain-validation",
+        "action-identity-and-rejection",
+        "result-status-and-score",
+        "snapshot-roundtrip-and-version-rejection",
+        "optional-extension-preservation",
+        "required-capability-rejection",
+        "oldest-newest-contracts",
+        "mount-update-dispose",
+        "accessible-keyboard-interaction",
+        "no-serialized-native-objects"
+      ],
+      "implementationIssue": "https://github.com/interactive-project/react/issues/1"
+    },
+    {
+      "id": "whiteboard/vue",
+      "domain": "interactive-project/whiteboard",
+      "host": "vue",
+      "status": "planned",
+      "requirements": [
+        "envelope-and-domain-validation",
+        "action-identity-and-rejection",
+        "result-status-and-score",
+        "snapshot-roundtrip-and-version-rejection",
+        "optional-extension-preservation",
+        "required-capability-rejection",
+        "oldest-newest-contracts",
+        "mount-update-dispose",
+        "accessible-keyboard-interaction",
+        "no-serialized-native-objects"
+      ],
+      "implementationIssue": "https://github.com/interactive-project/vue/issues/1"
+    },
+    {
+      "id": "whiteboard/svelte",
+      "domain": "interactive-project/whiteboard",
+      "host": "svelte",
+      "status": "planned",
+      "requirements": [
+        "envelope-and-domain-validation",
+        "action-identity-and-rejection",
+        "result-status-and-score",
+        "snapshot-roundtrip-and-version-rejection",
+        "optional-extension-preservation",
+        "required-capability-rejection",
+        "oldest-newest-contracts",
+        "mount-update-dispose",
+        "accessible-keyboard-interaction",
+        "no-serialized-native-objects"
+      ],
+      "implementationIssue": "https://github.com/interactive-project/svelte/issues/1"
+    }
+  ]
+}
