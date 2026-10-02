@@ -11,7 +11,9 @@
     "fixtures",
     "README.md",
     "content",
-    "interoperability"
+    "interoperability",
+    "generation",
+    "catalogs"
   ],
   "exports": {
     "./schemas/activity-spec.v1.schema.json": "./schemas/activity-spec.v1.schema.json",
@@ -43,11 +45,23 @@
       "import": "./validation/interoperability.js",
       "default": "./validation/interoperability.js"
     },
-    "./schemas/interoperability.v1.schema.json": "./schemas/interoperability.v1.schema.json"
+    "./schemas/interoperability.v1.schema.json": "./schemas/interoperability.v1.schema.json",
+    "./generation": {
+      "types": "./generation/index.d.ts",
+      "import": "./generation/index.js",
+      "default": "./generation/index.js"
+    },
+    "./schemas/generation-catalog.v1.schema.json": "./schemas/generation-catalog.v1.schema.json",
+    "./catalogs/available-generation.v1.json": "./catalogs/available-generation.v1.json",
+    "./generation/json": {
+      "types": "./generation/json.d.ts",
+      "import": "./generation/json.js",
+      "default": "./generation/json.js"
+    }
   },
   "scripts": {
-    "test": "node scripts/check-conformance.mjs && python3 scripts/check_conformance.py && node scripts/check-shared-content.mjs && python3 scripts/check_shared_content.py && node scripts/check-interoperability.mjs && python3 scripts/check_interoperability.py",
-    "check:types": "tsc --noEmit --strict --module NodeNext --moduleResolution NodeNext types/activity-spec.d.ts validation/index.d.ts scripts/type-consumer.mts content/index.d.ts validation/shared-content.d.ts scripts/shared-content-consumer.mts interoperability/index.d.ts validation/interoperability.d.ts scripts/interoperability-consumer.mts"
+    "test": "node scripts/check-conformance.mjs && python3 scripts/check_conformance.py && node scripts/check-shared-content.mjs && python3 scripts/check_shared_content.py && node scripts/check-interoperability.mjs && python3 scripts/check_interoperability.py && node scripts/check-generation.mjs && python3 scripts/check_generation.py",
+    "check:types": "tsc --noEmit --strict --module NodeNext --moduleResolution NodeNext types/activity-spec.d.ts validation/index.d.ts scripts/type-consumer.mts content/index.d.ts validation/shared-content.d.ts scripts/shared-content-consumer.mts interoperability/index.d.ts validation/interoperability.d.ts scripts/interoperability-consumer.mts generation/index.d.ts scripts/generation-consumer.mts"
   },
   "peerDependencies": {
     "ajv": "^8.17.1",
