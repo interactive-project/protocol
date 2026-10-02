@@ -52,7 +52,7 @@ for (const item of validateActivitySpec(read('../fixtures/diagram/invalid.json')
 // Exact structural comparison keeps the optional TS projection aligned with the schema.
 const ts = await import('typescript');
 const program = ts.default.createProgram(
-  ['../types/activity-spec.d.ts', '../types/validation-result.d.ts', '../validation/index.d.ts', './type-consumer.mts', './shared-content-consumer.mts', './interoperability-consumer.mts', './generation-consumer.mts'].map(path => new URL(path, import.meta.url).pathname),
+  ['../types/activity-spec.d.ts', '../types/validation-result.d.ts', '../validation/index.d.ts', './type-consumer.mts', './shared-content-consumer.mts', './interoperability-consumer.mts', './generation-consumer.mts', './evolution-consumer.mts'].map(path => new URL(path, import.meta.url).pathname),
   { strict: true, noEmit: true, module: ts.default.ModuleKind.NodeNext, moduleResolution: ts.default.ModuleResolutionKind.NodeNext }
 );
 assert.equal(ts.default.getPreEmitDiagnostics(program).length, 0);
@@ -131,7 +131,7 @@ for (const [name, definition] of [['LocalizedText', 'localizedText'], ['Accessib
 console.log('Shared content schema/type consistency passed.');
 
 const headlessProgram = ts.default.createProgram(
-  ['../interoperability/index.d.ts', '../validation/interoperability.d.ts', '../content/index.d.ts', '../generation/index.d.ts'].map(path => new URL(path, import.meta.url).pathname),
+  ['../interoperability/index.d.ts', '../validation/interoperability.d.ts', '../content/index.d.ts', '../generation/index.d.ts', '../evolution/index.d.ts'].map(path => new URL(path, import.meta.url).pathname),
   { strict: true, noEmit: true, module: ts.default.ModuleKind.NodeNext, moduleResolution: ts.default.ModuleResolutionKind.NodeNext, lib: ['lib.es2022.d.ts'] }
 );
 assert.equal(ts.default.getPreEmitDiagnostics(headlessProgram).length, 0, 'Public contracts must compile without DOM type libraries');

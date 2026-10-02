@@ -1,0 +1,210 @@
+{
+  "matrixVersion": "1.0.0",
+  "components": [
+    {
+      "id": "interactive-project/protocol",
+      "packageVersion": "0.1.0",
+      "status": "implemented",
+      "contracts": {
+        "spec": [
+          "1.0.0"
+        ],
+        "action": [
+          "1.0.0"
+        ],
+        "result": [
+          "1.0.0"
+        ],
+        "snapshot": [
+          "1.0.0"
+        ],
+        "event": []
+      },
+      "limitations": [
+        "No event contract yet",
+        "Domain config validators and hosts not released",
+        "Implementation in repository; no package publication asserted"
+      ]
+    },
+    {
+      "id": "interactive-project/core",
+      "packageVersion": null,
+      "status": "planned",
+      "contracts": {
+        "spec": [],
+        "action": [],
+        "result": [],
+        "snapshot": [],
+        "event": []
+      },
+      "limitations": [
+        "No verified release compatibility advertised"
+      ]
+    },
+    {
+      "id": "interactive-project/events",
+      "packageVersion": null,
+      "status": "planned",
+      "contracts": {
+        "spec": [],
+        "action": [],
+        "result": [],
+        "snapshot": [],
+        "event": []
+      },
+      "limitations": [
+        "No verified release compatibility advertised"
+      ]
+    },
+    {
+      "id": "interactive-project/quiz",
+      "packageVersion": null,
+      "status": "planned",
+      "contracts": {
+        "spec": [],
+        "action": [],
+        "result": [],
+        "snapshot": [],
+        "event": []
+      },
+      "limitations": [
+        "No verified release compatibility advertised"
+      ]
+    },
+    {
+      "id": "interactive-project/flashcards",
+      "packageVersion": null,
+      "status": "planned",
+      "contracts": {
+        "spec": [],
+        "action": [],
+        "result": [],
+        "snapshot": [],
+        "event": []
+      },
+      "limitations": [
+        "No verified release compatibility advertised"
+      ]
+    },
+    {
+      "id": "interactive-project/code",
+      "packageVersion": null,
+      "status": "planned",
+      "contracts": {
+        "spec": [],
+        "action": [],
+        "result": [],
+        "snapshot": [],
+        "event": []
+      },
+      "limitations": [
+        "No verified release compatibility advertised"
+      ]
+    },
+    {
+      "id": "interactive-project/simulation",
+      "packageVersion": null,
+      "status": "planned",
+      "contracts": {
+        "spec": [],
+        "action": [],
+        "result": [],
+        "snapshot": [],
+        "event": []
+      },
+      "limitations": [
+        "No verified release compatibility advertised"
+      ]
+    },
+    {
+      "id": "interactive-project/diagram",
+      "packageVersion": null,
+      "status": "planned",
+      "contracts": {
+        "spec": [],
+        "action": [],
+        "result": [],
+        "snapshot": [],
+        "event": []
+      },
+      "limitations": [
+        "No verified release compatibility advertised"
+      ]
+    },
+    {
+      "id": "interactive-project/whiteboard",
+      "packageVersion": null,
+      "status": "planned",
+      "contracts": {
+        "spec": [],
+        "action": [],
+        "result": [],
+        "snapshot": [],
+        "event": []
+      },
+      "limitations": [
+        "No verified release compatibility advertised"
+      ]
+    },
+    {
+      "id": "interactive-project/renderer-dom",
+      "packageVersion": null,
+      "status": "planned",
+      "contracts": {
+        "spec": [],
+        "action": [],
+        "result": [],
+        "snapshot": [],
+        "event": []
+      },
+      "limitations": [
+        "No verified release compatibility advertised"
+      ]
+    },
+    {
+      "id": "interactive-project/react",
+      "packageVersion": null,
+      "status": "planned",
+      "contracts": {
+        "spec": [],
+        "action": [],
+        "result": [],
+        "snapshot": [],
+        "event": []
+      },
+      "limitations": [
+        "No verified release compatibility advertised"
+      ]
+    },
+    {
+      "id": "interactive-project/vue",
+      "packageVersion": null,
+      "status": "planned",
+      "contracts": {
+        "spec": [],
+        "action": [],
+        "result": [],
+        "snapshot": [],
+        "event": []
+      },
+      "limitations": [
+        "No verified release compatibility advertised"
+      ]
+    },
+    {
+      "id": "interactive-project/svelte",
+      "packageVersion": null,
+      "status": "planned",
+      "contracts": {
+        "spec": [],
+        "action": [],
+        "result": [],
+        "snapshot": [],
+        "event": []
+      },
+      "limitations": [
+        "No verified release compatibility advertised"
+      ]
+    }
+  ]
+}
