@@ -129,3 +129,10 @@ function compareShared(type, shape) {
 }
 for (const [name, definition] of [['LocalizedText', 'localizedText'], ['Accessibility', 'accessibility'], ['ContentRef', 'contentRef'], ['AssetRef', 'assetRef']]) compareShared(checker.getTypeAtLocation(sharedDeclarations.get(name)), sharedSchema.$defs[definition]);
 console.log('Shared content schema/type consistency passed.');
+
+const headlessProgram = ts.default.createProgram(
+  ['../interoperability/index.d.ts', '../validation/interoperability.d.ts', '../content/index.d.ts'].map(path => new URL(path, import.meta.url).pathname),
+  { strict: true, noEmit: true, module: ts.default.ModuleKind.NodeNext, moduleResolution: ts.default.ModuleResolutionKind.NodeNext, lib: ['lib.es2022.d.ts'] }
+);
+assert.equal(ts.default.getPreEmitDiagnostics(headlessProgram).length, 0, 'Public contracts must compile without DOM type libraries');
+console.log('Headless contract types compile with ES2022 libraries only.');

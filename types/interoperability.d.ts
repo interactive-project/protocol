@@ -22,14 +22,19 @@ export interface Snapshot {
   state: Record<string, JsonValue>;
   drivers?: Record<string, { driverVersion: string; stateVersion: string; encoding: 'json'; data: JsonValue }>;
 }
-/** Live host port. Functions, AbortSignal and services never belong in serialized data. */
+/** Live host ports. Signals and services never belong in serialized data. */
+export interface CancellationSignal {
+  readonly aborted: boolean;
+  addEventListener(type: 'abort', listener: () => void, options?: { once?: boolean }): void;
+  removeEventListener(type: 'abort', listener: () => void): void;
+}
 export type MaybePromise<T> = T | PromiseLike<T>;
-export interface EngineContext { sessionId: string; attemptId?: string; signal?: AbortSignal; services?: Readonly<Record<string, unknown>> }
+export interface EngineContext { sessionId: string; attemptId?: string; signal?: CancellationSignal; services?: Readonly<Record<string, unknown>> }
 export interface EngineSession {
-  dispatch(action: Action, options?: { signal?: AbortSignal }): MaybePromise<DispatchResult>;
-  evaluate(options?: { signal?: AbortSignal }): MaybePromise<Result>;
+  dispatch(action: Action, options?: { signal?: CancellationSignal }): MaybePromise<DispatchResult>;
+  evaluate(options?: { signal?: CancellationSignal }): MaybePromise<Result>;
   serialize(): MaybePromise<Snapshot>;
-  restore(snapshot: Snapshot, options?: { signal?: AbortSignal }): MaybePromise<void>;
+  restore(snapshot: Snapshot, options?: { signal?: CancellationSignal }): MaybePromise<void>;
   dispose(): MaybePromise<void>;
 }
 export interface EngineDriver { create(activity: ActivitySpec, context: EngineContext): MaybePromise<EngineSession> }

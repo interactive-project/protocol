@@ -16,3 +16,7 @@ declare const result: Result;
 if (result.status === 'completed') { const score: number = result.score.value; void score; }
 if (result.status === 'failed') { const message: string = result.failure.message; void message; }
 void [asynchronous, synchronous, missingRevision, missingReason];
+
+const nativeSignalDriver: EngineDriver = { create(activity, context) { void context.signal; void activity; return session; } };
+const signalCompatible: Parameters<EngineDriver['create']>[1] = { sessionId: 'host-session', signal: new AbortController().signal };
+void [nativeSignalDriver, signalCompatible];
