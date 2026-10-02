@@ -1,0 +1,490 @@
+{
+  "protocolVersion": "1.0.0",
+  "id": "00000000-0000-4000-8000-000000000033",
+  "type": "interactive-project/whiteboard",
+  "activitySchemaVersion": "1.0.0",
+  "metadata": {
+    "title": "Shared content whiteboard"
+  },
+  "config": {
+    "objects": [
+      {
+        "id": "text1",
+        "kind": "content",
+        "content": {
+          "kind": "content-ref",
+          "schemaVersion": "1.0.0",
+          "id": "urn:content:connection-prompt",
+          "plainText": {
+            "kind": "localized-text",
+            "schemaVersion": "1.0.0",
+            "defaultLocale": "en",
+            "translations": {
+              "en": {
+                "text": "Explain the connection.",
+                "direction": "ltr"
+              },
+              "es": {
+                "text": "Explica la conexión.",
+                "direction": "ltr"
+              },
+              "ar": {
+                "text": "اشرح الاتصال.",
+                "direction": "rtl"
+              }
+            }
+          },
+          "accessibility": {
+            "kind": "accessibility",
+            "schemaVersion": "1.0.0",
+            "instructions": {
+              "kind": "localized-text",
+              "schemaVersion": "1.0.0",
+              "defaultLocale": "en",
+              "translations": {
+                "en": {
+                  "text": "Explain the connection.",
+                  "direction": "ltr"
+                },
+                "es": {
+                  "text": "Explica la conexión.",
+                  "direction": "ltr"
+                },
+                "ar": {
+                  "text": "اشرح الاتصال.",
+                  "direction": "rtl"
+                }
+              }
+            },
+            "label": {
+              "kind": "localized-text",
+              "schemaVersion": "1.0.0",
+              "defaultLocale": "en",
+              "translations": {
+                "en": {
+                  "text": "Explain the connection.",
+                  "direction": "ltr"
+                },
+                "es": {
+                  "text": "Explica la conexión.",
+                  "direction": "ltr"
+                },
+                "ar": {
+                  "text": "اشرح الاتصال.",
+                  "direction": "rtl"
+                }
+              }
+            },
+            "description": {
+              "kind": "localized-text",
+              "schemaVersion": "1.0.0",
+              "defaultLocale": "en",
+              "translations": {
+                "en": {
+                  "text": "Explain the connection.",
+                  "direction": "ltr"
+                },
+                "es": {
+                  "text": "Explica la conexión.",
+                  "direction": "ltr"
+                },
+                "ar": {
+                  "text": "اشرح الاتصال.",
+                  "direction": "rtl"
+                }
+              }
+            },
+            "equivalentExperience": {
+              "kind": "localized-text",
+              "schemaVersion": "1.0.0",
+              "defaultLocale": "en",
+              "translations": {
+                "en": {
+                  "text": "Explain the connection.",
+                  "direction": "ltr"
+                },
+                "es": {
+                  "text": "Explica la conexión.",
+                  "direction": "ltr"
+                },
+                "ar": {
+                  "text": "اشرح الاتصال.",
+                  "direction": "rtl"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "quiz1",
+        "kind": "embedded-activity",
+        "activity": {
+          "protocolVersion": "1.0.0",
+          "id": "00000000-0000-4000-8000-000000000031",
+          "type": "interactive-project/quiz",
+          "activitySchemaVersion": "1.0.0",
+          "metadata": {
+            "title": "Shared content quiz"
+          },
+          "config": {
+            "questions": [
+              {
+                "id": "q1",
+                "prompt": {
+                  "kind": "content-ref",
+                  "schemaVersion": "1.0.0",
+                  "id": "urn:content:connection-prompt",
+                  "plainText": {
+                    "kind": "localized-text",
+                    "schemaVersion": "1.0.0",
+                    "defaultLocale": "en",
+                    "translations": {
+                      "en": {
+                        "text": "Explain the connection.",
+                        "direction": "ltr"
+                      },
+                      "es": {
+                        "text": "Explica la conexión.",
+                        "direction": "ltr"
+                      },
+                      "ar": {
+                        "text": "اشرح الاتصال.",
+                        "direction": "rtl"
+                      }
+                    }
+                  },
+                  "accessibility": {
+                    "kind": "accessibility",
+                    "schemaVersion": "1.0.0",
+                    "instructions": {
+                      "kind": "localized-text",
+                      "schemaVersion": "1.0.0",
+                      "defaultLocale": "en",
+                      "translations": {
+                        "en": {
+                          "text": "Explain the connection.",
+                          "direction": "ltr"
+                        },
+                        "es": {
+                          "text": "Explica la conexión.",
+                          "direction": "ltr"
+                        },
+                        "ar": {
+                          "text": "اشرح الاتصال.",
+                          "direction": "rtl"
+                        }
+                      }
+                    },
+                    "label": {
+                      "kind": "localized-text",
+                      "schemaVersion": "1.0.0",
+                      "defaultLocale": "en",
+                      "translations": {
+                        "en": {
+                          "text": "Explain the connection.",
+                          "direction": "ltr"
+                        },
+                        "es": {
+                          "text": "Explica la conexión.",
+                          "direction": "ltr"
+                        },
+                        "ar": {
+                          "text": "اشرح الاتصال.",
+                          "direction": "rtl"
+                        }
+                      }
+                    },
+                    "description": {
+                      "kind": "localized-text",
+                      "schemaVersion": "1.0.0",
+                      "defaultLocale": "en",
+                      "translations": {
+                        "en": {
+                          "text": "Explain the connection.",
+                          "direction": "ltr"
+                        },
+                        "es": {
+                          "text": "Explica la conexión.",
+                          "direction": "ltr"
+                        },
+                        "ar": {
+                          "text": "اشرح الاتصال.",
+                          "direction": "rtl"
+                        }
+                      }
+                    },
+                    "equivalentExperience": {
+                      "kind": "localized-text",
+                      "schemaVersion": "1.0.0",
+                      "defaultLocale": "en",
+                      "translations": {
+                        "en": {
+                          "text": "Explain the connection.",
+                          "direction": "ltr"
+                        },
+                        "es": {
+                          "text": "Explica la conexión.",
+                          "direction": "ltr"
+                        },
+                        "ar": {
+                          "text": "اشرح الاتصال.",
+                          "direction": "rtl"
+                        }
+                      }
+                    }
+                  }
+                },
+                "illustration": {
+                  "kind": "asset-ref",
+                  "schemaVersion": "1.0.0",
+                  "id": "urn:asset:connection-diagram",
+                  "mediaType": "image/svg+xml",
+                  "uri": "urn:asset:connection-diagram",
+                  "integrity": {
+                    "algorithm": "sha256",
+                    "digest": "0000000000000000000000000000000000000000000000000000000000000000"
+                  },
+                  "attribution": {
+                    "creator": "Interactive Project fixture author",
+                    "title": "Connection diagram",
+                    "license": "https://creativecommons.org/licenses/by/4.0/",
+                    "source": "https://example.org/diagram"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "deck1",
+        "kind": "embedded-activity",
+        "activity": {
+          "protocolVersion": "1.0.0",
+          "id": "00000000-0000-4000-8000-000000000032",
+          "type": "interactive-project/flashcards",
+          "activitySchemaVersion": "1.0.0",
+          "metadata": {
+            "title": "Shared content flashcards"
+          },
+          "config": {
+            "cards": [
+              {
+                "id": "card1",
+                "front": {
+                  "kind": "content-ref",
+                  "schemaVersion": "1.0.0",
+                  "id": "urn:content:connection-prompt",
+                  "plainText": {
+                    "kind": "localized-text",
+                    "schemaVersion": "1.0.0",
+                    "defaultLocale": "en",
+                    "translations": {
+                      "en": {
+                        "text": "Explain the connection.",
+                        "direction": "ltr"
+                      },
+                      "es": {
+                        "text": "Explica la conexión.",
+                        "direction": "ltr"
+                      },
+                      "ar": {
+                        "text": "اشرح الاتصال.",
+                        "direction": "rtl"
+                      }
+                    }
+                  },
+                  "accessibility": {
+                    "kind": "accessibility",
+                    "schemaVersion": "1.0.0",
+                    "instructions": {
+                      "kind": "localized-text",
+                      "schemaVersion": "1.0.0",
+                      "defaultLocale": "en",
+                      "translations": {
+                        "en": {
+                          "text": "Explain the connection.",
+                          "direction": "ltr"
+                        },
+                        "es": {
+                          "text": "Explica la conexión.",
+                          "direction": "ltr"
+                        },
+                        "ar": {
+                          "text": "اشرح الاتصال.",
+                          "direction": "rtl"
+                        }
+                      }
+                    },
+                    "label": {
+                      "kind": "localized-text",
+                      "schemaVersion": "1.0.0",
+                      "defaultLocale": "en",
+                      "translations": {
+                        "en": {
+                          "text": "Explain the connection.",
+                          "direction": "ltr"
+                        },
+                        "es": {
+                          "text": "Explica la conexión.",
+                          "direction": "ltr"
+                        },
+                        "ar": {
+                          "text": "اشرح الاتصال.",
+                          "direction": "rtl"
+                        }
+                      }
+                    },
+                    "description": {
+                      "kind": "localized-text",
+                      "schemaVersion": "1.0.0",
+                      "defaultLocale": "en",
+                      "translations": {
+                        "en": {
+                          "text": "Explain the connection.",
+                          "direction": "ltr"
+                        },
+                        "es": {
+                          "text": "Explica la conexión.",
+                          "direction": "ltr"
+                        },
+                        "ar": {
+                          "text": "اشرح الاتصال.",
+                          "direction": "rtl"
+                        }
+                      }
+                    },
+                    "equivalentExperience": {
+                      "kind": "localized-text",
+                      "schemaVersion": "1.0.0",
+                      "defaultLocale": "en",
+                      "translations": {
+                        "en": {
+                          "text": "Explain the connection.",
+                          "direction": "ltr"
+                        },
+                        "es": {
+                          "text": "Explica la conexión.",
+                          "direction": "ltr"
+                        },
+                        "ar": {
+                          "text": "اشرح الاتصال.",
+                          "direction": "rtl"
+                        }
+                      }
+                    }
+                  }
+                },
+                "back": {
+                  "kind": "content-ref",
+                  "schemaVersion": "1.0.0",
+                  "id": "urn:content:connection-prompt",
+                  "plainText": {
+                    "kind": "localized-text",
+                    "schemaVersion": "1.0.0",
+                    "defaultLocale": "en",
+                    "translations": {
+                      "en": {
+                        "text": "Explain the connection.",
+                        "direction": "ltr"
+                      },
+                      "es": {
+                        "text": "Explica la conexión.",
+                        "direction": "ltr"
+                      },
+                      "ar": {
+                        "text": "اشرح الاتصال.",
+                        "direction": "rtl"
+                      }
+                    }
+                  },
+                  "accessibility": {
+                    "kind": "accessibility",
+                    "schemaVersion": "1.0.0",
+                    "instructions": {
+                      "kind": "localized-text",
+                      "schemaVersion": "1.0.0",
+                      "defaultLocale": "en",
+                      "translations": {
+                        "en": {
+                          "text": "Explain the connection.",
+                          "direction": "ltr"
+                        },
+                        "es": {
+                          "text": "Explica la conexión.",
+                          "direction": "ltr"
+                        },
+                        "ar": {
+                          "text": "اشرح الاتصال.",
+                          "direction": "rtl"
+                        }
+                      }
+                    },
+                    "label": {
+                      "kind": "localized-text",
+                      "schemaVersion": "1.0.0",
+                      "defaultLocale": "en",
+                      "translations": {
+                        "en": {
+                          "text": "Explain the connection.",
+                          "direction": "ltr"
+                        },
+                        "es": {
+                          "text": "Explica la conexión.",
+                          "direction": "ltr"
+                        },
+                        "ar": {
+                          "text": "اشرح الاتصال.",
+                          "direction": "rtl"
+                        }
+                      }
+                    },
+                    "description": {
+                      "kind": "localized-text",
+                      "schemaVersion": "1.0.0",
+                      "defaultLocale": "en",
+                      "translations": {
+                        "en": {
+                          "text": "Explain the connection.",
+                          "direction": "ltr"
+                        },
+                        "es": {
+                          "text": "Explica la conexión.",
+                          "direction": "ltr"
+                        },
+                        "ar": {
+                          "text": "اشرح الاتصال.",
+                          "direction": "rtl"
+                        }
+                      }
+                    },
+                    "equivalentExperience": {
+                      "kind": "localized-text",
+                      "schemaVersion": "1.0.0",
+                      "defaultLocale": "en",
+                      "translations": {
+                        "en": {
+                          "text": "Explain the connection.",
+                          "direction": "ltr"
+                        },
+                        "es": {
+                          "text": "Explica la conexión.",
+                          "direction": "ltr"
+                        },
+                        "ar": {
+                          "text": "اشرح الاتصال.",
+                          "direction": "rtl"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

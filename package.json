@@ -9,7 +9,8 @@
     "types",
     "docs",
     "fixtures",
-    "README.md"
+    "README.md",
+    "content"
   ],
   "exports": {
     "./schemas/activity-spec.v1.schema.json": "./schemas/activity-spec.v1.schema.json",
@@ -19,11 +20,22 @@
       "import": "./validation/index.js",
       "default": "./validation/index.js"
     },
-    "./types": "./types/activity-spec.d.ts"
+    "./types": "./types/activity-spec.d.ts",
+    "./content": {
+      "types": "./content/index.d.ts",
+      "import": "./content/index.js",
+      "default": "./content/index.js"
+    },
+    "./validation/shared-content": {
+      "types": "./validation/shared-content.d.ts",
+      "import": "./validation/shared-content.js",
+      "default": "./validation/shared-content.js"
+    },
+    "./schemas/shared-content.v1.schema.json": "./schemas/shared-content.v1.schema.json"
   },
   "scripts": {
-    "test": "node scripts/check-conformance.mjs && python3 scripts/check_conformance.py",
-    "check:types": "tsc --noEmit --strict --module NodeNext --moduleResolution NodeNext types/activity-spec.d.ts validation/index.d.ts scripts/type-consumer.mts"
+    "test": "node scripts/check-conformance.mjs && python3 scripts/check_conformance.py && node scripts/check-shared-content.mjs && python3 scripts/check_shared_content.py",
+    "check:types": "tsc --noEmit --strict --module NodeNext --moduleResolution NodeNext types/activity-spec.d.ts validation/index.d.ts scripts/type-consumer.mts content/index.d.ts validation/shared-content.d.ts scripts/shared-content-consumer.mts"
   },
   "peerDependencies": {
     "ajv": "^8.17.1",

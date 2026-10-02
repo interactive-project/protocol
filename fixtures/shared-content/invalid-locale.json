@@ -1,0 +1,19 @@
+{
+  "kind": "localized-text",
+  "schemaVersion": "1.0.0",
+  "defaultLocale": "en_US",
+  "translations": {
+    "en": {
+      "text": "Explain the connection.",
+      "direction": "ltr"
+    },
+    "es": {
+      "text": "Explica la conexión.",
+      "direction": "ltr"
+    },
+    "ar": {
+      "text": "اشرح الاتصال.",
+      "direction": "rtl"
+    }
+  }
+}
