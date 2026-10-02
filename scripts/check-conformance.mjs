@@ -51,26 +51,29 @@ for (const item of validateActivitySpec(read('../fixtures/diagram/invalid.json')
 
 // Exact structural comparison keeps the optional TS projection aligned with the schema.
 const ts = await import('typescript');
-const program = ts.default.createProgram([new URL('../types/activity-spec.d.ts', import.meta.url).pathname], { strict: true, noEmit: true });
+const program = ts.default.createProgram(
+  ['../types/activity-spec.d.ts', '../types/validation-result.d.ts', '../validation/index.d.ts', './type-consumer.mts'].map(path => new URL(path, import.meta.url).pathname),
+  { strict: true, noEmit: true, module: ts.default.ModuleKind.NodeNext, moduleResolution: ts.default.ModuleResolutionKind.NodeNext }
+);
 assert.equal(ts.default.getPreEmitDiagnostics(program).length, 0);
 const checker = program.getTypeChecker();
 const source = program.getSourceFiles().find(file => file.fileName.endsWith('/types/activity-spec.d.ts'));
 const declarations = new Map(source.statements.filter(statement => statement.name).map(statement => [statement.name.text, statement]));
 const schema = read('../schemas/activity-spec.v1.schema.json');
-function compare(type, shape) {
-  if (shape.$ref) shape = schema.$defs[shape.$ref.split('/').at(-1)];
+function compare(type, shape, root = schema) {
+  if (shape.$ref) shape = root.$defs[shape.$ref.split('/').at(-1)];
   if (shape.properties) {
     const props = checker.getPropertiesOfType(type);
     assert.deepEqual(props.map(p => p.name).sort(), Object.keys(shape.properties).sort());
     for (const prop of props) {
       assert.equal(!(prop.flags & ts.default.SymbolFlags.Optional), (shape.required ?? []).includes(prop.name), prop.name);
-      compare(checker.getNonNullableType(checker.getTypeOfSymbolAtLocation(prop, declarations.get('ActivitySpec'))), shape.properties[prop.name]);
+      compare(checker.getNonNullableType(checker.getTypeOfSymbolAtLocation(prop, declarations.get('ActivitySpec'))), shape.properties[prop.name], root);
     }
   } else if (shape.enum || shape.const !== undefined) {
     const values = type.isUnion() ? type.types.map(t => t.value) : [type.value];
     assert.deepEqual(values.sort(), (shape.enum ?? [shape.const]).slice().sort());
   } else if (shape.type === 'array') {
-    compare(checker.getIndexTypeOfType(type, ts.default.IndexKind.Number), shape.items);
+    compare(checker.getIndexTypeOfType(type, ts.default.IndexKind.Number), shape.items, root);
   } else if (shape.type === 'object') {
     assert.equal(checker.typeToString(checker.getIndexTypeOfType(type, ts.default.IndexKind.String)), 'JsonValue');
   } else if (typeof shape.type === 'string') {
@@ -93,3 +96,14 @@ const jsonKinds = new Set(jsonType.types.map(type => {
 }));
 assert.deepEqual([...jsonKinds].sort(), schema.$defs.jsonValue.type.slice().sort());
 console.log(`JavaScript: ${manifest.length} shared fixtures, runtime limits, diagnostics and TypeScript consistency passed.`);
+
+const resultSource = program.getSourceFiles().find(file => file.fileName.endsWith('/types/validation-result.d.ts'));
+const resultDeclarations = new Map(resultSource.statements.filter(statement => statement.name).map(statement => [statement.name.text, statement]));
+compare(checker.getTypeAtLocation(resultDeclarations.get('ValidationDiagnostic')), resultSchema.$defs.diagnostic, resultSchema);
+const codes = checker.getTypeAtLocation(resultDeclarations.get('ValidationCode')).types.map(type => type.value).sort();
+assert.deepEqual(codes, resultSchema.$defs.diagnostic.properties.code.enum.slice().sort());
+const before = spec(); before.config.nested = { value: [1, 'two', null] };
+const serializedBefore = JSON.stringify(before);
+assert(validateActivitySpec(before).valid);
+assert.equal(JSON.stringify(before), serializedBefore, 'Validation must preserve authored input');
+console.log('Portable diagnostics projection and package consumer type checks passed.');

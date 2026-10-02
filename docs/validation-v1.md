@@ -103,8 +103,14 @@ proxy traps. The adapter is for plain data, not a sandbox for executable objects
 
 ## TypeScript and Zod projections
 
-`types/activity-spec.d.ts` is an optional structural TypeScript projection. CI checks
-field names, optionality, literals, enums, arrays and primitive types against the
+`types/activity-spec.d.ts` and `types/validation-result.d.ts` are optional structural
+TypeScript projections. Import `ValidationResult`, `ValidationDiagnostic` and
+`ValidationCode` from the validation or types entry point. The validation entry
+publishes `validateActivitySpec(input: unknown): ValidationResult` and readonly
+resource policy declarations; result narrowing guarantees an empty success list
+or at least one failure diagnostic. CI checks a consumer against the actual
+package exports, including rejected unknown codes and inconsistent result shapes.
+CI also checks field names, optionality, literals, enums, arrays and primitive types against the
 schema, and compiles it in strict mode. Future generators MUST take the JSON Schema
 as their input and run this consistency gate; generated types cannot become a
 second authority. TypeScript cannot faithfully express UUID/version/namespace
