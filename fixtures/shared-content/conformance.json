@@ -1,0 +1,72 @@
+[
+  {
+    "file": "shared-content/content-ref.json",
+    "schemaValid": true,
+    "valid": true
+  },
+  {
+    "file": "shared-content/localized-text.json",
+    "schemaValid": true,
+    "valid": true
+  },
+  {
+    "file": "shared-content/asset.json",
+    "schemaValid": true,
+    "valid": true
+  },
+  {
+    "file": "shared-content/https-asset.json",
+    "schemaValid": true,
+    "valid": true
+  },
+  {
+    "file": "shared-content/missing-default.json",
+    "schemaValid": true,
+    "valid": false
+  },
+  {
+    "file": "shared-content/noncanonical-locale.json",
+    "schemaValid": true,
+    "valid": false
+  },
+  {
+    "file": "shared-content/invalid-locale.json",
+    "schemaValid": true,
+    "valid": false
+  },
+  {
+    "file": "shared-content/credential-uri.json",
+    "schemaValid": true,
+    "valid": false
+  },
+  {
+    "file": "shared-content/temporary-uri.json",
+    "schemaValid": true,
+    "valid": false
+  },
+  {
+    "file": "shared-content/script-uri.json",
+    "schemaValid": true,
+    "valid": false
+  },
+  {
+    "file": "shared-content/unknown-content-field.json",
+    "schemaValid": false,
+    "valid": false
+  },
+  {
+    "file": "shared-content/invalid-integrity.json",
+    "schemaValid": false,
+    "valid": false
+  },
+  {
+    "file": "shared-content/unknown-accessibility-field.json",
+    "schemaValid": false,
+    "valid": false
+  },
+  {
+    "file": "shared-content/empty-translation.json",
+    "schemaValid": false,
+    "valid": false
+  }
+]

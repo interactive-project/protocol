@@ -1,0 +1,81 @@
+{
+  "kind": "accessibility",
+  "schemaVersion": "1.0.0",
+  "instructions": {
+    "kind": "localized-text",
+    "schemaVersion": "1.0.0",
+    "defaultLocale": "en",
+    "translations": {
+      "en": {
+        "text": "Explain the connection.",
+        "direction": "ltr"
+      },
+      "es": {
+        "text": "Explica la conexión.",
+        "direction": "ltr"
+      },
+      "ar": {
+        "text": "اشرح الاتصال.",
+        "direction": "rtl"
+      }
+    }
+  },
+  "label": {
+    "kind": "localized-text",
+    "schemaVersion": "1.0.0",
+    "defaultLocale": "en",
+    "translations": {
+      "en": {
+        "text": "Explain the connection.",
+        "direction": "ltr"
+      },
+      "es": {
+        "text": "Explica la conexión.",
+        "direction": "ltr"
+      },
+      "ar": {
+        "text": "اشرح الاتصال.",
+        "direction": "rtl"
+      }
+    }
+  },
+  "description": {
+    "kind": "localized-text",
+    "schemaVersion": "1.0.0",
+    "defaultLocale": "en",
+    "translations": {
+      "en": {
+        "text": "Explain the connection.",
+        "direction": "ltr"
+      },
+      "es": {
+        "text": "Explica la conexión.",
+        "direction": "ltr"
+      },
+      "ar": {
+        "text": "اشرح الاتصال.",
+        "direction": "rtl"
+      }
+    }
+  },
+  "equivalentExperience": {
+    "kind": "localized-text",
+    "schemaVersion": "1.0.0",
+    "defaultLocale": "en",
+    "translations": {
+      "en": {
+        "text": "Explain the connection.",
+        "direction": "ltr"
+      },
+      "es": {
+        "text": "Explica la conexión.",
+        "direction": "ltr"
+      },
+      "ar": {
+        "text": "اشرح الاتصال.",
+        "direction": "rtl"
+      }
+    }
+  },
+  "claimsWCAG": true
+}
