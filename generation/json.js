@@ -1,6 +1,8 @@
-import { checkJsonInput, limits } from '../validation/json.js';
+import { limits } from '../validation/json.js';
 export const defaultInputLimits = Object.freeze({ maxBytes: 8388608, ...limits });
 const messages = {
+  "input.nonJson": "The value cannot be represented as JSON.",
+  "input.cycle": "The input contains a cycle.",
   "generation.policy": "The host input policy is invalid.",
   "generation.maxBytes": "The encoded input exceeds the host byte budget.",
   "generation.maxDepth": "The input exceeds the host depth budget.",
@@ -24,7 +26,7 @@ const messages = {
 export function generationFailure(code, stage = 'structural', path = '') {
   return { valid: false, stage, diagnostics: [{ code, path, severity: 'error', message: messages[code] }] };
 }
-class Failure extends Error { constructor(code) { super(code); this.code = code; } }
+class Failure extends Error { constructor(code, path = '') { super(code); this.code = code; this.path = path; } }
 function budgets(policy = {}) {
   const result = { ...defaultInputLimits };
   if (!policy || typeof policy !== 'object' || Array.isArray(policy)) throw new Failure('generation.policy');
@@ -100,29 +102,44 @@ export function parseGeneratedJson(source, policy = {}) {
     return { valid: true, value: frozen(parsed) };
   } catch (failure) { if (failure instanceof Failure) return generationFailure(failure.code); throw failure; }
 }
-/** Isolate parsed host input and enforce serialized size before allocating the complete copy. */
+/** Inspect descriptors while estimating encoded size; never serialize caller containers. */
 export function copyGeneratedJson(input, policy = {}) {
-  const invalid = checkJsonInput(input);
-  if (invalid) return { valid: false, stage: 'structural', diagnostics: [invalid] };
   try {
-    const limit = budgets(policy); let bytes = 0, nodes = 0;
+    const limit = budgets(policy), active = new WeakSet(); let bytes = 0, nodes = 0;
     const add = count => { bytes += count; if (bytes > limit.maxBytes) throw new Failure('generation.maxBytes'); };
-    function estimate(value, depth) {
-      if (++nodes > limit.maxNodes) throw new Failure('generation.maxNodes');
-      if (depth > limit.maxDepth) throw new Failure('generation.maxDepth');
-      if (value === null || typeof value !== 'object') {
+    const escape = key => key.replace(/~/g, '~0').replace(/\//g, '~1');
+    function visit(value, depth, path) {
+      if (++nodes > limit.maxNodes) throw new Failure('generation.maxNodes', path);
+      if (depth > limit.maxDepth) throw new Failure('generation.maxDepth', path);
+      if (value === null || typeof value === 'boolean' || typeof value === 'string' || (typeof value === 'number' && Number.isFinite(value))) {
         if (typeof value === 'string') stringBudget(value, limit.maxStringLength);
-        add(utf8Size(JSON.stringify(value))); return;
+        if (typeof value === 'number' && Number.isInteger(value) && !Number.isSafeInteger(value)) throw new Failure('generation.number', path);
+        add(utf8Size(JSON.stringify(value), limit.maxBytes - bytes)); return Object.is(value, -0) ? 0 : value;
       }
-      const entries = Array.isArray(value) ? value.map((value, index) => [index, value]) : Object.entries(value);
-      if (entries.length > limit.maxCollectionSize) throw new Failure('generation.maxCollectionSize');
-      add(2 + Math.max(0, entries.length - 1));
-      for (const [key, child] of entries) {
-        if (!Array.isArray(value)) { stringBudget(key, limit.maxStringLength); add(utf8Size(JSON.stringify(key)) + 1); }
-        estimate(child, depth + 1);
+      if (typeof value !== 'object') throw new Failure('input.nonJson', path);
+      if (active.has(value)) throw new Failure('input.cycle', path);
+      const array = Array.isArray(value), prototype = Object.getPrototypeOf(value);
+      if (array ? ![Array.prototype, null].includes(prototype) : ![Object.prototype, null].includes(prototype)) throw new Failure('input.nonJson', path);
+      const length = array ? Object.getOwnPropertyDescriptor(value, 'length').value : 0;
+      if (array && length > limit.maxCollectionSize) throw new Failure('generation.maxCollectionSize', path);
+      const keys = Reflect.ownKeys(value).filter(key => !(array && key === 'length'));
+      if (keys.length > limit.maxCollectionSize) throw new Failure('generation.maxCollectionSize', path);
+      if (array && keys.length !== length) throw new Failure('input.nonJson', path);
+      add(2 + Math.max(0, keys.length - 1)); active.add(value);
+      const copy = array ? [] : Object.create(null);
+      for (const key of keys) {
+        if (typeof key !== 'string' || (array && (!/^(0|[1-9][0-9]*)$/.test(key) || Number(key) >= length))) throw new Failure('input.nonJson', path);
+        const childPath = path + '/' + escape(key);
+        const descriptor = Object.getOwnPropertyDescriptor(value, key);
+        if (!descriptor.enumerable || !('value' in descriptor)) throw new Failure('input.nonJson', childPath);
+        if (!array) { stringBudget(key, limit.maxStringLength); add(utf8Size(JSON.stringify(key), limit.maxBytes - bytes) + 1); }
+        copy[key] = visit(descriptor.value, depth + 1, childPath);
       }
+      active.delete(value); return Object.freeze(copy);
     }
-    estimate(input, 0);
-    return parseGeneratedJson(JSON.stringify(input), policy);
-  } catch (failure) { if (failure instanceof Failure) return generationFailure(failure.code); throw failure; }
+    return { valid: true, value: visit(input, 0, '') };
+  } catch (failure) {
+    if (failure instanceof Failure) return generationFailure(failure.code, 'structural', failure.path);
+    return generationFailure('input.nonJson');
+  }
 }

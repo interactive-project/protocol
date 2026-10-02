@@ -74,3 +74,13 @@ assert.equal(parseGeneratedJson('"😀"', { maxBytes: 5 }).diagnostics[0].code, 
 const rejectedAsync = context(); rejectedAsync.validateDomainSchema = async () => { throw Error('private async error'); };
 assert.equal(validateGeneratedActivity(generated, rejectedAsync).diagnostics[0].code, 'generation.validator');
 await Promise.resolve();
+
+const needsNetworkWhileOffline = context({ network: true });
+needsNetworkWhileOffline.validateDomainSemantics = () => ({ valid: true, requirements: { permissions: ['network'], capabilities: ['offline'] } });
+assert.equal(validateGeneratedActivity(generated, needsNetworkWhileOffline).diagnostics[0].code, 'generation.capability');
+
+const sparse = Array(2); assert.equal(copyGeneratedJson(sparse).diagnostics[0].code, 'input.nonJson');
+const extraArray = [1]; extraArray.extra = true; assert.equal(copyGeneratedJson(extraArray).diagnostics[0].code, 'input.nonJson');
+const customArray = new (class extends Array { toJSON() { throw Error('Custom serializer executed'); } })(1);
+assert.equal(copyGeneratedJson(customArray).diagnostics[0].code, 'input.nonJson');
+assert.equal(copyGeneratedJson({ repeated: Array(10000).fill('x'.repeat(1000000)) }).diagnostics[0].code, 'generation.maxBytes');

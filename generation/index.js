@@ -63,6 +63,7 @@ export function validateGeneratedActivity(input, context) {
   for (const permission of requiredPermissions) if (!policy[permission]) return generationFailure('generation.permissionDenied', 'permission', '/config');
   const requiredCapabilities = new Set([...entry.requiredCapabilities, ...requirements.capabilities, 'aiGeneratable']);
   for (const capability of requiredCapabilities) {
+    if (capability === 'offline' && requiredPermissions.has('network')) return generationFailure('generation.capability', 'capability', '/config');
     const declaration = entry.capabilities[capability];
     if (!declaration.supported) return generationFailure('generation.capability', 'capability', '/config');
     if ((declaration.requiredDrivers ?? []).some(driver => !drivers.includes(driver))) return generationFailure('generation.missingDriver', 'capability', '/config');
