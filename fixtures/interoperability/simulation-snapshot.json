@@ -1,0 +1,22 @@
+{
+  "protocolVersion": "1.0.0",
+  "snapshotVersion": "1.0.0",
+  "activity": {
+    "id": "00000000-0000-4000-8000-000000000043",
+    "type": "interactive-project/simulation",
+    "activitySchemaVersion": "1.0.0",
+    "contentDigest": "282e77cba3d1e3dc69db7e9c23b32e49c5b86505a66e5f359cd9a1f0bdc13917"
+  },
+  "engine": {
+    "id": "interactive-project/simulation",
+    "stateVersion": "1.0.0"
+  },
+  "session": {
+    "id": "00000000-0000-4000-8000-000000000431",
+    "revision": 0
+  },
+  "state": {
+    "initialized": false
+  },
+  "drivers": {}
+}

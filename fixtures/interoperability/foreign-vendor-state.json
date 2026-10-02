@@ -1,0 +1,32 @@
+{
+  "protocolVersion": "1.0.0",
+  "snapshotVersion": "1.0.0",
+  "activity": {
+    "id": "00000000-0000-4000-8000-000000000041",
+    "type": "interactive-project/quiz",
+    "activitySchemaVersion": "1.0.0",
+    "contentDigest": "1140b3c2fdd4196df81857cd33343d334ba9195a0e5681a44e1e57f35817214d"
+  },
+  "engine": {
+    "id": "interactive-project/quiz",
+    "stateVersion": "1.0.0"
+  },
+  "session": {
+    "id": "00000000-0000-4000-8000-000000000401",
+    "attemptId": "00000000-0000-4000-8000-000000000402",
+    "revision": 1
+  },
+  "state": {
+    "answers": {
+      "q1": "A"
+    }
+  },
+  "drivers": {
+    "vendor/native": {
+      "driverVersion": "1.0.0",
+      "stateVersion": "1.0.0",
+      "encoding": "json",
+      "data": {}
+    }
+  }
+}

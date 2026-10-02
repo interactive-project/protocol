@@ -1,0 +1,19 @@
+{
+  "protocolVersion": "1.0.0",
+  "activityId": "00000000-0000-4000-8000-000000000041",
+  "sessionId": "00000000-0000-4000-8000-000000000401",
+  "attemptId": "00000000-0000-4000-8000-000000000402",
+  "resultVersion": "1.0.0",
+  "status": "completed",
+  "score": {
+    "value": 50,
+    "scale": "percentage"
+  },
+  "evidence": [
+    {
+      "id": "urn:evidence:quiz-answer-1",
+      "type": "urn:evidence-type:response"
+    }
+  ],
+  "revision": 1
+}

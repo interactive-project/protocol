@@ -1,0 +1,22 @@
+{
+  "protocolVersion": "1.0.0",
+  "snapshotVersion": "1.0.0",
+  "activity": {
+    "id": "00000000-0000-4000-8000-000000000042",
+    "type": "interactive-project/whiteboard",
+    "activitySchemaVersion": "1.0.0",
+    "contentDigest": "cedd5e80aa2e2f6f17c556fba2e547e2a89b7bf8a47aaf747e5bc4f47bd14df4"
+  },
+  "engine": {
+    "id": "interactive-project/whiteboard",
+    "stateVersion": "1.0.0"
+  },
+  "session": {
+    "id": "00000000-0000-4000-8000-000000000421",
+    "revision": 0
+  },
+  "state": {
+    "objects": []
+  },
+  "drivers": {}
+}

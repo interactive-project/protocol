@@ -1,0 +1,14 @@
+{
+  "protocolVersion": "1.0.0",
+  "activityId": "00000000-0000-4000-8000-000000000043",
+  "sessionId": "00000000-0000-4000-8000-000000000431",
+  "resultVersion": "1.0.0",
+  "status": "pending",
+  "pendingReason": "initialization",
+  "evidence": [],
+  "score": {
+    "value": 0,
+    "scale": "normalized"
+  },
+  "revision": 0
+}

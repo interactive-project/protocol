@@ -1,0 +1,107 @@
+[
+  {
+    "file": "interoperability/quiz-action.json",
+    "kind": "action",
+    "valid": true
+  },
+  {
+    "file": "interoperability/accepted.json",
+    "kind": "dispatchResult",
+    "valid": true
+  },
+  {
+    "file": "interoperability/rejected.json",
+    "kind": "dispatchResult",
+    "valid": true
+  },
+  {
+    "file": "interoperability/failed.json",
+    "kind": "result",
+    "valid": true
+  },
+  {
+    "file": "interoperability/negative-score.json",
+    "kind": "result",
+    "valid": false
+  },
+  {
+    "file": "interoperability/excess-score.json",
+    "kind": "result",
+    "valid": false
+  },
+  {
+    "file": "interoperability/wrong-scale.json",
+    "kind": "result",
+    "valid": false
+  },
+  {
+    "file": "interoperability/pending-with-score.json",
+    "kind": "result",
+    "valid": false
+  },
+  {
+    "file": "interoperability/unassessed-with-score.json",
+    "kind": "result",
+    "valid": false
+  },
+  {
+    "file": "interoperability/negative-sequence.json",
+    "kind": "action",
+    "valid": false
+  },
+  {
+    "file": "interoperability/unsupported-action-version.json",
+    "kind": "action",
+    "valid": false
+  },
+  {
+    "file": "interoperability/unsafe-rejection-pointer.json",
+    "kind": "dispatchResult",
+    "valid": false
+  },
+  {
+    "file": "interoperability/foreign-vendor-state.json",
+    "kind": "snapshot",
+    "valid": false
+  },
+  {
+    "file": "interoperability/unversioned-driver.json",
+    "kind": "snapshot",
+    "valid": false
+  },
+  {
+    "file": "interoperability/wrong-protocol.json",
+    "kind": "snapshot",
+    "valid": false
+  },
+  {
+    "file": "interoperability/quiz-result.json",
+    "kind": "result",
+    "valid": true
+  },
+  {
+    "file": "interoperability/quiz-snapshot.json",
+    "kind": "snapshot",
+    "valid": true
+  },
+  {
+    "file": "interoperability/whiteboard-result.json",
+    "kind": "result",
+    "valid": true
+  },
+  {
+    "file": "interoperability/whiteboard-snapshot.json",
+    "kind": "snapshot",
+    "valid": true
+  },
+  {
+    "file": "interoperability/simulation-result.json",
+    "kind": "result",
+    "valid": true
+  },
+  {
+    "file": "interoperability/simulation-snapshot.json",
+    "kind": "snapshot",
+    "valid": true
+  }
+]
